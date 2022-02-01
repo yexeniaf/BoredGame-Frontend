@@ -12,6 +12,8 @@ https://docs.google.com/document/d/1jPYh7i8NpYU8OhFO3R_PLyrBID4du4Nm7BLD5SFoG8Y/
 ## Component Hierarchy
 
 ### MVP/PostMVP
+We have setup our MVP and PMVP in our [Kanban](https://kanbanflow.com/board/WM5JWRc). 
+(Please provide us with email in order for you to have access.)
 
 
 ## Timeframes
