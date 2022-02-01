@@ -7,7 +7,34 @@ BoredGame is an online platform to play board games with friends. A user may sig
 ## Team Expectations:
 https://docs.google.com/document/d/1jPYh7i8NpYU8OhFO3R_PLyrBID4du4Nm7BLD5SFoG8Y/edit
 ## Wireframes
+#### Landing Screen
+![Landing screen wireframe](./.github/img/Landing.png)
 
+#### Home Screen
+![Home screen wireframe](./.github/img/Home.png)
+
+#### Log In Screen
+![Log In screen wireframe](./.github/img/Login.png)
+
+#### Sign Up Screen
+![Sign Up screen wireframe](./.github/img/Signup.png)
+
+#### Account Info Screen
+![Account Info screen wireframe](./.github/img/AccountInfo.png)
+
+#### Edit Account Info Screen
+![Edit Account Info screen wireframe](./.github/img/EditAccountInfo.png)
+
+#### Game View Screen
+![Game View Screen wireframe](./.github/img/GameView.png)
+
+#### Saved Screen
+![Saved games screen wireframe](./.github/img/saved.png)
+
+#### 404 Error Screen
+![404 Error scree wireframe](./.github/img/404Page.png)
+
+###### [Wireframes created with Figma](https://www.figma.com/)
 
 ## Component Hierarchy
 ![BoredGame@2x (1)](https://user-images.githubusercontent.com/93221807/152036555-acfe1fd7-089b-44b7-b455-34cb297c6c6e.png)
