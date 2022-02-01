@@ -1,1 +1,1 @@
-# Bored-Game-
+# BoredGame
