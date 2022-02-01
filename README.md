@@ -1,5 +1,8 @@
 # BoredGame
 
+![teamLogo](https://user-images.githubusercontent.com/92563217/152058492-73ba23ce-847c-48a7-aa98-03fcd1424eed.jpg)
+
+
 ## Project Overview
 
 BoredGame is an online platform to play board games with friends. A user may sign in to slect a board game to be hosted online and played locally. Our vision is to start with a single game, and build out the catalog over time. 
