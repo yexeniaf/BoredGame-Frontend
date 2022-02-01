@@ -10,6 +10,7 @@ https://docs.google.com/document/d/1jPYh7i8NpYU8OhFO3R_PLyrBID4du4Nm7BLD5SFoG8Y/
 
 
 ## Component Hierarchy
+![BoredGame@2x (1)](https://user-images.githubusercontent.com/93221807/152036555-acfe1fd7-089b-44b7-b455-34cb297c6c6e.png)
 
 ### MVP/PostMVP
 We have setup our MVP and PMVP in our [Kanban](https://kanbanflow.com/board/WM5JWRc). 
