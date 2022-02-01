@@ -29,7 +29,7 @@ https://docs.google.com/document/d/1jPYh7i8NpYU8OhFO3R_PLyrBID4du4Nm7BLD5SFoG8Y/
 ![Game View Screen wireframe](./.github/img/GameView.png)
 
 #### Saved Screen
-![Saved games screen wireframe](./.github/img/saved.png)
+![Saved games screen wireframe](./.github/img/Saved.png)
 
 #### 404 Error Screen
 ![404 Error scree wireframe](./.github/img/404Page.png)
