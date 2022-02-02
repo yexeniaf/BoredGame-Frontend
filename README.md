@@ -2,7 +2,8 @@
 
 ## Project Overview
 
-BoredGame is an online platform to play board games with friends. A user may sign in to slect a board game to be hosted online and played locally. Our vision is to start with a single game, and build out the catalog over time. 
+BoredGame is an online platform to play board games with friends. A user may sign in to select a board game to be hosted online and played locally. Our vision is to start with a single game, and build out the catalog over time. 
+
 
 ## Team Expectations:
 https://docs.google.com/document/d/1jPYh7i8NpYU8OhFO3R_PLyrBID4du4Nm7BLD5SFoG8Y/edit
