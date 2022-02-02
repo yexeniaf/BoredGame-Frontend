@@ -1,25 +1,29 @@
 import React from 'react';
 import { Link } from "react-router-dom"
 
-export default function Navbar() {
-  return( 
-    <nav className="bg-gray-800 flex-1  " >
-        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <ul className="flex justify-evenly text-black">
-                <li  className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
+export default function Navbae() {
+    return (
+        <nav className="text-lg px-4 py-4 bg-gray-800">
+            <ul className="flex justify-evenly text-stone-300">
+                <li>
+                    <Link to="/home">Bored? Game!</Link>
+                </li>
+                <li>
                     <Link to="/saved">Saved</Link>
                 </li>
-                <li  className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
-                    <Link to="/account">Account</Link>
+                <li>
+                    <Link to="/new">New</Link>
                 </li>
-                <li  className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
-                    <Link to="/signup">SignUp</Link>
+                <li>
+                    <Link to="/Account">Account</Link>
                 </li>
-                <li  className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
-                    <Link to="/login">Login</Link>
+                <li>
+                    <Link to="/signup">Sign Up</Link>
+                </li>
+                <li>
+                    <Link to="/Login">Login</Link>
                 </li>
             </ul>
-        </div>
-    </nav>
-  )
+        </nav>
+    )
 }
