@@ -3,20 +3,28 @@ import  LandingPage from "./components/LandingPage";
 import HomePage from "./components/HomePage";
 import './App.css';
 import Signup from './screens/Signup';
+import Edit from "./screens/Edit";
+import Login from "./screens/Login";
+import Game from "./screens/Game";
+import Account from "./screens/Account";
+import ErrorPage from "./screens/ErrorPage";
+import SavedGames from "./screens/SavedGames";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className="App">
+      <Navbar/>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/signup" element={<Signup/>} />
+        <Route path="/login" element={<Login/>}/>
         <Route path="/home" element={<HomePage />}/>
-        <Route path="/signup" element={<Signup/>}>Sign Up Page </Route>
-        <Route>Login Page</Route>
-        <Route>Account Info Page</Route>
-        <Route>Edit Account Page</Route>
-        <Route> Game Page</Route>
-        <Route> Saved Page</Route>
-        <Route> Error Page</Route>
+        <Route path="/account" element={<Account/>}/>
+        <Route path="/edit" element={<Edit/>}/>
+        <Route path="/risk" element={<Game/>}/>
+        <Route path="/saved" element={<SavedGames/>}/>
+        <Route path="/error" element={<ErrorPage/>}/>
       </Routes>
 
     </div>
