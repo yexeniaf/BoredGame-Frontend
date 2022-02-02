@@ -9,6 +9,11 @@ function App() {
         <Route> Home Page</Route>
         <Route>Sign Up Page </Route>
         <Route>Login Page</Route>
+        <Route>Account Info Page</Route>
+        <Route>Edit Account Page</Route>
+        <Route> Game Page</Route>
+        <Route> Saved Page</Route>
+        <Route> Error Page</Route>
       </Routes>
 
     </div>
