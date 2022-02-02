@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ErrorPage() {
   return (
-    <div class="bg-indigo-900 relative overflow-hidden h-screen">
+    <div class="bg-black relative overflow-hidden h-screen">
       <img src="https://t4.ftcdn.net/jpg/01/79/97/33/360_F_179973328_WmTgchiYSNEUWrGggispWfYdT2xLDhbZ.jpg" class="absolute h-full w-full object-cover"/>
       <div class="inset-0 bg-black opacity-25 absolute"></div>
       <div class="container mx-auto px-6 md:px-12 relative z-10 flex items-center py-32 xl:py-40">
