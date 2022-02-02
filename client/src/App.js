@@ -7,6 +7,7 @@ import Edit from "./screens/Edit";
 import Login from "./screens/Login";
 import Game from "./screens/Game";
 import Account from "./screens/Account";
+import ErrorPage from "./screens/ErrorPage";
 
 function App() {
   return (
@@ -18,9 +19,9 @@ function App() {
         <Route path="/home" element={<HomePage />}/>
         <Route path="/account" element={<Account/>}/>
         <Route path="/edit" element={<Edit/>}/>
-        <Route path ="risk" element={<Game/>}/>
+        <Route path ="/risk" element={<Game/>}/>
         <Route> Saved Page</Route>
-        <Route> Error Page</Route>
+        <Route path="/error" element={<ErrorPage/>}/>
       </Routes>
 
     </div>
