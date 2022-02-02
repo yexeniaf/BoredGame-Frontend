@@ -9,7 +9,7 @@ const default_input = {
     confirmPassword: '',
   };
 
-export default function Signup() {
+export default function Edit() {
     const [input, setInput] = useState(default_input);
     const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ export default function Signup() {
     //     event.preventDefault();
     //     const fields = input;
     //     console.log(fields);
-    //     await axios.post("", fields);
+    //     await axios.put("", fields);
     
     //     setInput(default_input);
     //     navigate('/');
@@ -33,7 +33,7 @@ export default function Signup() {
 
   return (
     <div className="flex flex-col items-center">
-        <h2>Signup</h2>
+        <h2>Edit Account</h2>
         <form className="flex flex-col items-center bg-gray-500 m-5 p-5 w-80">
             <label htmlFor="email">E-mail:</label>
             <input type="text" id='email' onChange={handleTextInput} className="border-solid-3" required/>
@@ -44,9 +44,7 @@ export default function Signup() {
             <label htmlFor="confirmPassword">Confirm Password:</label>
             <input type="text" id='confirmPassword' onChange={handleTextInput} required/>
             <br />
-            <button type="submit">Submit</button>
-            <br />
-            <h5>Already have an account? <Link to={'/login'}>Login</Link></h5>
+            <button>Save</button>
         </form>
     </div>
   );
