@@ -9,10 +9,12 @@ import Game from "./screens/Game";
 import Account from "./screens/Account";
 import ErrorPage from "./screens/ErrorPage";
 import SavedGames from "./screens/SavedGames";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className="App">
+      <Navbar/>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<Signup/>} />
@@ -21,7 +23,7 @@ function App() {
         <Route path="/account" element={<Account/>}/>
         <Route path="/edit" element={<Edit/>}/>
         <Route path="/risk" element={<Game/>}/>
-        <Route path="/saves" element={<SavedGames/>}/>
+        <Route path="/saved" element={<SavedGames/>}/>
         <Route path="/error" element={<ErrorPage/>}/>
       </Routes>
 
