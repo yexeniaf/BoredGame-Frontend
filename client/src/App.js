@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import './App.css';
+import Signup from './screens/Signup';
 
 function App() {
   return (
@@ -7,7 +8,7 @@ function App() {
       <Routes>
         <Route>Welcome Page</Route>
         <Route> Home Page</Route>
-        <Route>Sign Up Page </Route>
+        <Route path="/signup" element={<Signup/>}>Sign Up Page </Route>
         <Route>Login Page</Route>
         <Route>Account Info Page</Route>
         <Route>Edit Account Page</Route>
