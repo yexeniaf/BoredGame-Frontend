@@ -34,8 +34,8 @@ export default function Signup() {
   return (
     <div className="flex flex-col items-center">
         <h2>Signup</h2>
-        <form className="flex flex-col items-center bg-gray-500 m-5 p-5 w-80">
-            <label htmlFor="email">E-mail:</label>
+        <form className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70">
+            <label className="flex" htmlFor="email">E-mail:</label>
             <input type="text" id='email' onChange={handleTextInput} className="border-solid-3" required/>
             <label htmlFor="userName">Choose Username:</label>
             <input type="text" id='userName' onChange={handleTextInput} required/>
