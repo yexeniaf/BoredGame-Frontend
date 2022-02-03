@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from "react-router-dom"
 
 export default function Navbar() {
+    const id = "61face7abe3d608f47a8720a";
+
     return (
         <nav className="nav text-lg px-4 py-4 bg-stone-900">
             <Link to="/">
@@ -15,7 +17,7 @@ export default function Navbar() {
                     <Link to="/new">New</Link>
                 </li>
                 <li>
-                    <Link to="/Account">Account</Link>
+                    <Link to={`Account/${id}`}>Account</Link>
                 </li>
                 <li>
                     <Link to="/signup">Sign Up</Link>
