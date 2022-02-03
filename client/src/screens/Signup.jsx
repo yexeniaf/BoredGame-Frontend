@@ -30,9 +30,9 @@ export default function Signup(){
 
  
   return (
-    <div className="Form">
-      <form className="loginForm" onSubmit={handleSubmit}>
-        <legend id="legend">Signup</legend>
+    <div className="flex flex-col items-center">
+      <form className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70" onSubmit={handleSubmit}>
+        <h2>Signup</h2>
         <br />
         <label>Username</label>
         <input 
@@ -65,6 +65,7 @@ export default function Signup(){
           value={input.confirmPassword}
           onChange={handleTextInput}
         /> */}
+        <br/>
         <button id="button">Submit</button>
       </form>
       </div>
