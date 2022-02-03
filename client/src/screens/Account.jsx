@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { getUser } from '../services/apiConfig';
 
 
 
@@ -10,8 +11,8 @@ export default function Account() {
 
   useEffect(()=>{
     const fetchUser = async ()=>{
-      const res = await axios.get(`https://boredgame-backend.herokuapp.com/users/${id}`);
-      setUser(res.data.data.userProfile);
+      const res = await getUser(id)
+      setUser(res.data.userProfile);
     }
     fetchUser();
   },[])

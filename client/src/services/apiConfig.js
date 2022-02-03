@@ -37,3 +37,14 @@ export const loginUser = (props) => {
   })
  
 }
+
+export const getUser = (props) =>
+axios({
+  url:`${apiUrl}users/${props}`
+})
+.then((response)=>{
+  return response.data
+})
+.catch((error)=>{
+  console.log(error);
+})
