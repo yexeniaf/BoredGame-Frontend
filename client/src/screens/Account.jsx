@@ -36,8 +36,6 @@ export default function Account() {
         <div>{user.email}</div>
         <h3 className='text-pink-800'>Username:</h3>
         <div>{user.userName}</div>
-        <h3 className='text-pink-800'>Password:</h3>
-        <div>{user.password_digest}</div>
         <br />
         <Link to={`/edit/${id}`} className='text-blue-600'>Edit</Link>
     </form>

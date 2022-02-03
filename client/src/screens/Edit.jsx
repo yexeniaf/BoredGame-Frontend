@@ -5,8 +5,7 @@ import { updateUser } from "../services/apiConfig";
 
 const default_input = {
     userName: '',
-    email: '',
-    password: '',
+    email: ''
   };
 
 export default function Edit() {
@@ -40,11 +39,6 @@ export default function Edit() {
             <input type="text" id='email' onChange={handleTextInput} className="border-solid-3" required/>
             <label htmlFor="userName">Choose Username:</label>
             <input type="text" id='userName' onChange={handleTextInput} required/>
-            <label htmlFor="password">Password:</label>
-            <input type="text" id='password' onChange={handleTextInput} required/>
-            <label htmlFor="confirmPassword">Confirm Password:</label>
-            <input type="text" id='confirmPassword' onChange={handleTextInput} required/>
-            <br />
             <button type="submit">Save</button>
         </form>
     </div>

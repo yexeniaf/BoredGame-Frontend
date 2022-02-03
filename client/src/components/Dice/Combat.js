@@ -1,4 +1,4 @@
-import DieRoll from "./DieRoll"
+import DieRoll from "./DieRoll.js"
 
 //stack-overflow
 function repeat(func, times) {
@@ -7,7 +7,7 @@ function repeat(func, times) {
 }
 
 
-export default Combat = () => {
+export default function Combat() {
     const att = [];
     const def = [];
 
