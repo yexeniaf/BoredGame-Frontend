@@ -48,3 +48,16 @@ axios({
 .catch((error)=>{
   console.log(error);
 })
+
+export const updateUser = (id, fields) =>
+axios({
+  method: "put",
+  url: `${apiUrl}update/${id}`,
+  data: fields
+})
+.then((response)=>{
+  return response.data
+})
+.catch((error)=>{
+  console.log(error);
+})

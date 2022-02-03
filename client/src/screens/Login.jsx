@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../services/apiConfig";
 
 const default_input = {
     email: "",
@@ -21,7 +22,7 @@ export default function Login() {
 
     const handleSubmit = async (event)=>{
       event.preventDefault();
-      const res = await axios.post("", input);
+      const res = await loginUser(input);
       console.log(res.data);
     }
 

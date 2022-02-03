@@ -1,12 +1,12 @@
 import { useState } from "react";
-import axios from "axios";
-import { useNavigate, Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { updateUser } from "../services/apiConfig";
+
 
 const default_input = {
     userName: '',
     email: '',
     password: '',
-    confirmPassword: '',
   };
 
 export default function Edit() {
@@ -22,18 +22,18 @@ export default function Edit() {
         }));
     };
       
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     const fields = input;
-    //     console.log(fields);
-    //     await axios.put("", fields);
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const fields = input;
+        console.log(fields);
+        await updateUser(id, fields);
     
-    //     setInput(default_input);
-    //     navigate(`/account/${id}`);
-    // };  
+        setInput(default_input);
+        navigate(`/account/${id}`);
+    };  
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center" onSubmit={handleSubmit}>
         <h2>Edit Account</h2>
         <form className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70">
             <label htmlFor="email">E-mail:</label>
