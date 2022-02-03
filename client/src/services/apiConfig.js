@@ -1,21 +1,39 @@
 import axios from 'axios';
 
-let apiUrl;
+const apiUrl ='https://boredgame-backend.herokuapp.com/'
 
-const apiUrls = {
-  production: 'https://boredgame-backend.herokuapp.com/',
-  development: 'http://localhost:3000/'
-  
-};
-
-if (window.location.hostname === 'localhost') {
-  apiUrl = apiUrls.development
-} else {
-  apiUrl = apiUrls.production
-};
 
 const api = axios.create({
   baseURL: apiUrl
 });
 
 export default api;
+
+export const newUser = (props) => 
+axios({
+  method: "post",
+  url: `${apiUrl}signup`,
+  data: props,
+})
+.then((response) => {
+  console.log(response.data)
+  return response.data;
+})
+.catch((error) => {
+  console.log(error)
+})
+
+export const loginUser = (props) => {
+  axios({
+    method: "post",
+    url: `${apiUrl}login`,
+    data: props,
+  })
+  .then((response) => {
+    return response.data
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+ 
+}
