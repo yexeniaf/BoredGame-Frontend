@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 
 const default_input = {
     userName: '',
@@ -12,6 +12,7 @@ const default_input = {
 export default function Edit() {
     const [input, setInput] = useState(default_input);
     const navigate = useNavigate();
+    const {id} = useParams()
 
     const handleTextInput = (event) => {
         const { id, value } = event.target;
@@ -28,7 +29,7 @@ export default function Edit() {
     //     await axios.put("", fields);
     
     //     setInput(default_input);
-    //     navigate('/');
+    //     navigate(`/account/${id}`);
     // };  
 
   return (
@@ -44,7 +45,7 @@ export default function Edit() {
             <label htmlFor="confirmPassword">Confirm Password:</label>
             <input type="text" id='confirmPassword' onChange={handleTextInput} required/>
             <br />
-            <button>Save</button>
+            <button type="submit">Save</button>
         </form>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function RollDice() {
+export default function RollDice(props) {
     const [die, setDie] = useState(1);
     const [die2, setDie2] = useState(1);
     const [die3, setDie3] = useState(1);

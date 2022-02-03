@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -18,10 +19,16 @@ export default function Login() {
         }));
     };
 
+    const handleSubmit = async (event)=>{
+      event.preventDefault();
+      const res = await axios.post("", input);
+      console.log(res.data);
+    }
+
   return (
     <div className="flex flex-col items-center">
         <h2>Login</h2>
-        <form className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70">
+        <form className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70" onSubmit={handleSubmit}>
             <label htmlFor="email">E-mail:</label>
             <input type="text" id='email' onChange={handleTextInput} className="border-solid-3" required/>
             <label htmlFor="password">Password:</label>
