@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from "react-router-dom"
 
-export default function Navbae() {
+export default function Navbar() {
     return (
-        <nav className="nav text-lg px-4 py-4 bg-gray-800">
-            <h1>Bored? Game!</h1>
-            <ul className=" text-stone-300">
+        <nav className="nav text-lg px-4 py-4 bg-stone-900">
+            <Link to="/">
+                <h1 className='font-extrabold text-stone-300'>Bored? Game!</h1>
+            </Link>
+            <ul className="links text-stone-300">
                 <li>
                     <Link to="/saved">Saved</Link>
                 </li>
