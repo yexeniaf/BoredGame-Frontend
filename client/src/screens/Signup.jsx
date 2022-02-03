@@ -1,53 +1,107 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import { signUp } from "../services/users";
 
-const default_input = {
-    userName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-  };
 
-export default function Signup() {
-    const [input, setInput] = useState(default_input);
-    const navigate = useNavigate();
-
-    const handleTextInput = (event) => {
-        const { id, value } = event.target;
-        setInput((prevInput) => ({
-          ...prevInput,
-          [id]: value,
-        }));
-    };
-      
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     const fields = input;
-    //     console.log(fields);
-    //     await axios.post("", fields);
+export default function Signup(props){
     
-    //     setInput(default_input);
-    //     navigate('/');
-    // };  
+
+    const [form, setForm] = useState ({
+        userName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        isError: false,
+        errorMessage: "Invalid Credentials"
+    })
+
+    const handleChange = (e) => {
+      setForm({
+        ...form,
+        [e.target.name]: e.target.value
+      })
+    }
+
+    const onSignUp = async (e) => {
+      e.preventDefault();
+      const { setUser } = props
+      try {
+        const user = await signUp(form)
+        setUser(user)
+      } catch (error) {
+        console.error(error)
+        setForm({
+          userName: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+          isError: true,
+          errorMessage: "Invalid Credentials"
+        })
+      }
+    }
+
+    const renderError = () => {
+      const toggleForm = form.isError ? 'danger' : ''
+      if ( form.isError) {
+        return (
+          <button type='submit' className={toggleForm}>
+            {form.errorMessage}
+          </button>
+        )
+      } else {
+        return <button type="submit">Sign Up</button>
+      }
+    }
+
+    const { userName, email, password, confirmPassword } = form
 
   return (
-    <div className="flex flex-col items-center">
-        <h2>Signup</h2>
-        <form className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70">
-            <label className="flex" htmlFor="email">E-mail:</label>
-            <input type="text" id='email' onChange={handleTextInput} className="border-solid-3" required/>
-            <label htmlFor="userName">Choose Username:</label>
-            <input type="text" id='userName' onChange={handleTextInput} required/>
-            <label htmlFor="password">Password:</label>
-            <input type="text" id='password' onChange={handleTextInput} required/>
-            <label htmlFor="confirmPassword">Confirm Password:</label>
-            <input type="text" id='confirmPassword' onChange={handleTextInput} required/>
-            <br />
-            <button type="submit">Submit</button>
-            <br />
-            <h5>Already have an account? <Link to={'/login'}>Login</Link></h5>
-        </form>
+    <div>
+      <h3> Sign Up</h3>
+      <form className="singup-form" onSubmit={onSignUp}>
+        <label >UserName</label>
+        <input
+          class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+          required
+          type='text'
+          name='userName'
+          value={userName}
+          placeholder='Enter username'
+          onChange={handleChange}
+        />
+        <label>Email address</label>
+        <input
+          class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+          required
+          type='email'
+          name='email'
+          value={email}
+          placeholder='Enter email'
+          onChange={handleChange}
+        />
+        <label>Password</label>
+        <input
+          class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+          required
+          name='password'
+          value={password}
+          type='password'
+          placeholder='Password'
+          onChange={handleChange}
+        />
+        <label>Password Confirmation</label>
+        <input
+          class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+          required
+          name='confirmPassword'
+          value={confirmPassword}
+          type='password'
+          placeholder='Confirm Password'
+          onChange={handleChange}
+        />
+        {renderError()}
+      </form>
     </div>
   );
 }
