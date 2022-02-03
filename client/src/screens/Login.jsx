@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const default_input = {
     email: "",
-    password: ""
+    password_digest: ""
 }
 
 export default function Login() {
