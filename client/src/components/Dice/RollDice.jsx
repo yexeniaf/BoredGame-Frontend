@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import DieRoll from "./DieRoll.js";
 
 export default function RollDice() {
     const [die, setDie] = useState(1);
@@ -11,11 +12,10 @@ export default function RollDice() {
     }
 
     useEffect(() => {
-        setDie(Math.floor(Math.random()*6 + 1));
-        setDie2(Math.floor(Math.random()*6 + 1));
-        setDie3(Math.floor(Math.random()*6 + 1))
+        setDie(DieRoll());
+        setDie2(DieRoll());
+        setDie3(DieRoll())
     }, [toggle])
-    console.log(die);
     
 
   return (

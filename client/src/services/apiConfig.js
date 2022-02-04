@@ -36,7 +36,6 @@ export const loginUser = (props) => {
   .catch((error) => {
     console.log(error)
   })
- 
 }
 
 export const getUser = (props) =>
@@ -50,11 +49,12 @@ axios({
   console.log(error);
 })
 
-export const updateUser = (id, fields) =>
+export const updateUser = (id, fields, token) =>
 axios({
   method: "put",
   url: `${apiUrl}update/${id}`,
-  data: fields
+  data: fields,
+  headers: {Authorization: `${token}`}
 })
 .then((response)=>{
   return response.data
