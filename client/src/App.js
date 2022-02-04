@@ -10,6 +10,7 @@ import Account from "./screens/Account";
 import ErrorPage from "./screens/ErrorPage";
 import SavedGames from "./screens/SavedGames";
 import Navbar from "./components/Navbar";
+import Boggle from "./screens/Boggle";
 
 function App() {
   return (
@@ -22,9 +23,10 @@ function App() {
         <Route path="/home" element={<HomePage />}/>
         <Route path="/account/:id" element={<Account/>}/>
         <Route path="/edit/:id" element={<Edit/>}/>
-        <Route path="/risk" element={<Game/>}/>
+        <Route path="/new" element={<Game/>}/>
         <Route path="/saved" element={<SavedGames/>}/>
         <Route path="/error" element={<ErrorPage/>}/>
+        <Route path="/boggle" element={<Boggle/>}/>
       </Routes>
 
     </div>
