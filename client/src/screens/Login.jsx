@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../services/apiConfig";
 
 const default_user = {
     email: "",
@@ -25,7 +24,6 @@ export default function Login() {
       e.preventDefault()
       try {
         const res = await axios.post(`https://boredgame-backend.herokuapp.com/login`, input)
-        console.log(res)
         navigate(`/account/${res.data.data.user._id}`)
       } catch (error) {
         console.error(error)
@@ -38,28 +36,28 @@ export default function Login() {
       }   
     }
 
-  return (
-    <div className="flex flex-col items-center">
-        <h2 id="login">Login</h2>
-        <form onSubmit={handleSubmit} className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70">
-            <label htmlFor="email">E-mail:</label>
-            <input 
-              type="text" 
-              name='email' 
-              onChange={handleTextInput} 
-              className="border-solname-3" 
-              required
-            />
-            <label htmlFor="password">Password:</label>
-            <input 
-              type="text" 
-              name='password' 
-              onChange={handleTextInput} 
-              required
-            />
-            <br/>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-  );
-}
+    return (
+      <div className="flex flex-col items-center">
+          <h2 id="login">Login</h2>
+          <form onSubmit={handleSubmit} className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70">
+              <label htmlFor="email">E-mail:</label>
+              <input 
+                type="text" 
+                name='email' 
+                onChange={handleTextInput} 
+                className="border-solname-3" 
+                required
+              />
+              <label htmlFor="password">Password:</label>
+              <input 
+                type="text" 
+                name='password' 
+                onChange={handleTextInput} 
+                required
+              />
+              <br/>
+              <button type="submit">Submit</button>
+          </form>
+      </div>
+    );
+  }
