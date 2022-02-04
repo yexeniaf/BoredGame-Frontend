@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function PlayerNumSelect() {
+export default function PlayerNumSelect(props) {
     // Sets default input. Useful if more fields are added later.
     const default_input = {
         playerNum: 2
@@ -18,6 +18,8 @@ export default function PlayerNumSelect() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        props.setPlayerNum(input);
+        props.setToggle(true);
     };
 
     // Form with slider and button.
