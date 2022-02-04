@@ -24,7 +24,6 @@ export default function Login() {
       e.preventDefault()
       try {
         const res = await axios.post(`https://boredgame-backend.herokuapp.com/login`, input)
-        console.log(res)
         navigate(`/account/${res.data.data.user._id}`)
       } catch (error) {
         console.error(error)
