@@ -16,7 +16,6 @@ export default function RollDice() {
         setDie2(DieRoll());
         setDie3(DieRoll())
     }, [toggle])
-    console.log(die);
     
 
   return (

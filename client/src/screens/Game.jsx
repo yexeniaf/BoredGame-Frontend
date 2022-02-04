@@ -1,6 +1,7 @@
 import React from 'react';
 import Combat from '../components/Dice/Combat';
 import RollDice from '../components/Dice/RollDice';
+import Setup from '../components/Setup';
 
 export default function Game() {
   return (
@@ -9,6 +10,7 @@ export default function Game() {
         <div className='flex p-5'>
           <RollDice/>
           <Combat troopNum1={3} troopNum2={2}/>
+          <Setup/>
         </div>
     </div>
   );
