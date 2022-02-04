@@ -23,7 +23,7 @@ export default function PlayerNumSelect() {
     // Form with slider and button.
     return (    
         <form
-            className="bg-orange-400 p-10 text-white"
+            className="bg-orange-400 p-10 text-white fixed"
             id="playerNumForm"
             onSubmit={handleSubmit}
         >

@@ -2,7 +2,7 @@ import React from 'react';
 import Combat from '../components/Dice/Combat';
 import RollDice from '../components/Dice/RollDice';
 import PlayerCard from '../components/PlayerCard';
-import Setup from '../components/Setup';
+import PlayerNumSelect from '../components/PlayerNumSelect';
 
 export default function Game() {
   return (
@@ -11,11 +11,11 @@ export default function Game() {
         <div className='flex p-5'>
           <RollDice/>
           <Combat troopNum1={3} troopNum2={2}/>
-          <Setup/>
         </div>
         <div className='absolute bg-red-800 h-screen right-0'>
           <PlayerCard num={1} num2={25}/>
         </div>
+          <PlayerNumSelect/>
     </div>
   );
 }
