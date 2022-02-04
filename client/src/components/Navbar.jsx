@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from "react-router-dom"
 
-export default function Navbae() {
+export default function Navbar() {
+    const id = "61face7abe3d608f47a8720a";
+
     return (
-        <nav className="text-lg px-4 py-4 bg-gray-800">
-            <ul className="flex justify-evenly text-stone-300">
-                <li>
-                    <Link to="/home">Bored? Game!</Link>
-                </li>
+        <nav className="nav text-lg px-4 py-4 bg-stone-900">
+            <Link to="/">
+                <h1 className='font-extrabold text-stone-300'>Bored? Game!</h1>
+            </Link>
+            <ul className="links text-stone-300">
                 <li>
                     <Link to="/saved">Saved</Link>
                 </li>
@@ -15,7 +17,7 @@ export default function Navbae() {
                     <Link to="/new">New</Link>
                 </li>
                 <li>
-                    <Link to="/Account">Account</Link>
+                    <Link to={`Account/${id}`}>Account</Link>
                 </li>
                 <li>
                     <Link to="/signup">Sign Up</Link>

@@ -1,53 +1,73 @@
 import { useState } from "react";
-import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { newUser } from "../services/apiConfig";
 
-const default_input = {
-    userName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-  };
+const default_user = {
+  userName: '',
+  email: '',
+  password_digest: '',
+  // confirmPassword: '',
+}
 
-export default function Signup() {
-    const [input, setInput] = useState(default_input);
-    const navigate = useNavigate();
+export default function Signup(){
+    // const navigate = useNavigate();
+    const [input, setInput] = useState(default_user);
 
-    const handleTextInput = (event) => {
-        const { id, value } = event.target;
-        setInput((prevInput) => ({
-          ...prevInput,
-          [id]: value,
-        }));
-    };
-      
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     const fields = input;
-    //     console.log(fields);
-    //     await axios.post("", fields);
-    
-    //     setInput(default_input);
-    //     navigate('/');
-    // };  
+    const handleTextInput = (e) => {
+      const {name, value} = e.target;
+      setInput((prevInput) => ({
+        ...prevInput,
+        [name]: value,
+      }))
+    }
 
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      await newUser(input)
+      // navigate("/login");
+    }
+
+
+ 
   return (
     <div className="flex flex-col items-center">
+      <form className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70" onSubmit={handleSubmit}>
         <h2>Signup</h2>
-        <form className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70">
-            <label className="flex" htmlFor="email">E-mail:</label>
-            <input type="text" id='email' onChange={handleTextInput} className="border-solid-3" required/>
-            <label htmlFor="userName">Choose Username:</label>
-            <input type="text" id='userName' onChange={handleTextInput} required/>
-            <label htmlFor="password">Password:</label>
-            <input type="text" id='password' onChange={handleTextInput} required/>
-            <label htmlFor="confirmPassword">Confirm Password:</label>
-            <input type="text" id='confirmPassword' onChange={handleTextInput} required/>
-            <br />
-            <button type="submit">Submit</button>
-            <br />
-            <h5>Already have an account? <Link to={'/login'}>Login</Link></h5>
-        </form>
-    </div>
+        <br />
+        <label>Username</label>
+        <input 
+          name="userName"
+          input={input}
+          value={input.userName}
+          onChange={handleTextInput}
+        />
+        <label>Email</label>
+        <input 
+          name="email"
+          input={input}
+          value={input.email}
+          onChange={handleTextInput}
+        />
+        <br />
+        <label >Password</label>
+        <input 
+          type="password"
+          name="password_digest"
+          input={input}
+          value={input.password_digest}
+          onChange={handleTextInput}
+        />
+        {/* <label >Confirm Password</label>
+        <input 
+          type="password"
+          input={input}
+          name="confirmPassword"
+          value={input.confirmPassword}
+          onChange={handleTextInput}
+        /> */}
+        <br/>
+        <button id="button">Submit</button>
+      </form>
+      </div>
   );
-}
+};
