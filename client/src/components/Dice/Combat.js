@@ -7,7 +7,7 @@ function repeat(func, times) {
 }
 
 
-export default function Combat() {
+export default function Combat(troopNum1, troopNum2) {
     const att = [];
     const def = [];
 
