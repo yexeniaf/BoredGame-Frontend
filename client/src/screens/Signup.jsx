@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { newUser } from "../services/apiConfig";
+import axios from 'axios';
 
 const default_user = {
   userName: '',
   email: '',
   password_digest: '',
-  // confirmPassword: '',
 }
 
 export default function Signup(){
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
+
     const [input, setInput] = useState(default_user);
 
     const handleTextInput = (e) => {
@@ -23,12 +23,21 @@ export default function Signup(){
 
     const handleSubmit = async (e) => {
       e.preventDefault();
-      await newUser(input)
-      // navigate("/login");
+      try {
+        const res = await axios.post(`https://boredgame-backend.herokuapp.com/signup`, input)
+        console.log(res)
+        navigate(`/account/${res.data.data.user}`)
+      } catch (error) {
+        console.error(error)
+        setInput({
+          isError: true,
+          errorMsg: 'Error creating user. Please contact project owner.',
+          email: '',
+          password_digest: '',
+        })
+      }
     }
 
-
- 
   return (
     <div className="flex flex-col items-center">
       <form className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70" onSubmit={handleSubmit}>
@@ -57,14 +66,6 @@ export default function Signup(){
           value={input.password_digest}
           onChange={handleTextInput}
         />
-        {/* <label >Confirm Password</label>
-        <input 
-          type="password"
-          input={input}
-          name="confirmPassword"
-          value={input.confirmPassword}
-          onChange={handleTextInput}
-        /> */}
         <br/>
         <button id="button">Submit</button>
       </form>
