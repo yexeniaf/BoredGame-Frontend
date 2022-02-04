@@ -1,9 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
 import Counter from '../components/Counter';
-=======
 import Combat from '../components/Dice/Combat';
->>>>>>> efff6bbfbd7fae8dccc1422be38372d0262b3218
 import RollDice from '../components/Dice/RollDice';
 import PlayerCard from '../components/PlayerCard';
 import Setup from '../components/Setup';
