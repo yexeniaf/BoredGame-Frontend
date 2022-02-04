@@ -36,7 +36,6 @@ export const loginUser = (props) => {
   .catch((error) => {
     console.log(error)
   })
- 
 }
 
 export const getUser = (props) =>

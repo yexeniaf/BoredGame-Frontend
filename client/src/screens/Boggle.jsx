@@ -23,7 +23,7 @@ export default function Boggle() {
     const [toggle, setToggle] = useState(false);
     const arr2 = [];
 
-    //taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+    //shuffle function taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
     function shuffle(array) {
         let currentIndex = array.length,  randomIndex;
 
