@@ -11,22 +11,17 @@ export default function PlayerNumSelect(props) {
     // Logic to set starting troops. This variable is sent to the game state.
     let startingTroopAllotment;
     if (input.playerNum === 2) {
-        console.log("playerNum:", input.playerNum);
         startingTroopAllotment = 40;
         } else if (input.playerNum === 3) {
-            console.log("playerNum:", input.playerNum);
             startingTroopAllotment = 35;
         } else if (input.playerNum === 4) {
-            console.log("playerNum:", input.playerNum);
             startingTroopAllotment = 30;
         } else if (input.playerNum === 5) {
-            console.log("playerNum:", input.playerNum);
             startingTroopAllotment = 25;
         } else if (input.playerNum === 6) {
-            console.log("playerNum:", input.playerNum);
             startingTroopAllotment = 20;
         } else {
-            console.log("Players must be 2-6.")
+            console.error("Players must be 2-6.")
         };
 
     const handleNumberInput = (e) => {
