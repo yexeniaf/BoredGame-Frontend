@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
+import axios from 'axios';
+
 // import Counter from '../components/Counter';
 // import Combat from '../components/Dice/Combat';
 import RollDice from '../components/Dice/RollDice';
@@ -11,9 +13,20 @@ import Setup from '../components/Setup';
 import Table from '../components/Table';
 import Turn from '../scripts/Turn.js';
 
+const dummy_territory = {
+  territory: "Alaska",
+  cardOwner: 2,
+  troops: 3,
+  territoryOwner: 1
+}
+
 export default function Game() {
   // Toggle to control display of player number selector and main game.
   const [toggle, setToggle] = useState(false);
+
+  // Toggle to Refresh game state when you save.
+  // const [toggleSave, setToggleSave] = useState(false);
+
   const initialRender = useRef(true);
   // const [troopNum1, setTroopNum1] = useState(8);
   // const [troopNum2, setTroopNum2] = useState(6);
@@ -37,6 +50,24 @@ export default function Game() {
       makePlayerArr();
     }
   }, [toggle])
+  
+  const saveGame = async (e) => {
+    e.preventDefault();
+    try {
+      let gameState = {
+          playerNum: playerNum,
+          territories: dummy_territory,
+          turn: currentTurn
+      }
+      const res = await axios.post(`https://boredgame-backend.herokuapp.com/gamestate`, gameState)
+      console.log(res);
+      alert("Saved!");
+  
+    } catch (error) {
+        alert("Error Saving Game. Contact project owner.")
+        console.error("Error Saving Game. Contact project owner.")
+    };
+  };
 
   // Player num is an integer, so we need to push components into an array and return the array in the return statement.
   const makePlayerArr = () => {
@@ -57,7 +88,6 @@ export default function Game() {
     // Sets the current turn to the output of the turn function.
     setCurrentTurn(Turn(currentTurn, playerNum));
   }
-
 
   if (toggle) {
     return (
@@ -100,6 +130,7 @@ export default function Game() {
               playerNum = {playerNum}
               territories = {"territories"}
               turn = {currentTurn}
+              saveGame = {saveGame}
             />
           </div>
       </div>
