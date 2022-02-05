@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Counter from '../components/Counter';
 import Combat from '../components/Dice/Combat';
 import RollDice from '../components/Dice/RollDice';
@@ -9,13 +9,41 @@ import PlayerNumSelect from '../components/PlayerNumSelect';
 import Setup from '../components/Setup';
 
 export default function Game() {
+  // Toggle to control display of player number selector and main game.
   const [toggle, setToggle] = useState(false);
-  const [playerNum, setPlayerNum] = useState({ playerNum: 2 });
   const [troopNum1, setTroopNum1] = useState(8);
   const [troopNum2, setTroopNum2] = useState(6);
 
+  // Number of players:
+  const [playerNum, setPlayerNum] = useState(2);
+
+  // An array with player card elements eqaul to the number of players:
+  const [players, setPlayers] = useState([]);
+
+  // The starting troop allottment per player:
+  const [startingTroops, setStartingTroops] = useState(0);
+  
+  // When the toggle is fired, make an array of playyers.
+  useEffect(() => {
+    makePlayerArr();
+  }, [toggle])
+
+  // Player num is an integer, so we need to push components into an array and return the array in the return statement.
+  const makePlayerArr = () => {
+    let playerArr = [];
+    for (let i = 1; i <= playerNum; i++) {
+      playerArr.push(
+        <PlayerCard
+          key = {i}
+          num={i}
+          troops={startingTroops}
+        />
+      );
+    }
+    setPlayers(playerArr)
+  };
+  
   if (toggle) {
-    // console.log("playerNum:", playerNum);
     return (
       <div className="flex flex-col items-center">
           <img className='w-3/4 left-0 absolute' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Risk_game_board.svg/600px-Risk_game_board.svg.png" alt="risk" />
@@ -43,8 +71,9 @@ export default function Game() {
             <RollOneDie/>
             <Setup/>
           </div>
-          <div className='absolute bg-red-900 h-full right-0 border-2 border-x-amber-500'>
-            <PlayerCard num={playerNum.playerNum} num2={25}/>
+          <div className='absolute bg-red-900 h-screen right-0 border-2 border-x-amber-500'>
+            <h3>Player Stats</h3>
+            {players}
           </div>
       </div>
     );  
@@ -53,6 +82,8 @@ export default function Game() {
       <PlayerNumSelect
         setToggle = {setToggle}
         setPlayerNum = {setPlayerNum}
+        setStartingTroops = {setStartingTroops}
+        makePlayerArr = {makePlayerArr}
       />
     )
   }
