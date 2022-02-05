@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Counter from '../components/Counter';
 import Combat from '../components/Dice/Combat';
 import RollDice from '../components/Dice/RollDice';
 import RollOneDie from '../components/Dice/RollOneDie';
@@ -7,11 +6,8 @@ import RollTwoDice from '../components/Dice/RollTwoDice';
 import PlayerCard from '../components/PlayerCard';
 import PlayerNumSelect from '../components/PlayerNumSelect';
 import Setup from '../components/Setup';
-<<<<<<< HEAD
 import Table from '../components/Table';
-=======
 import Turn from '../scripts/Turn.js';
->>>>>>> 48360806c7be0812ac497f7a48ab984b0b6c30e4
 
 export default function Game() {
   // Toggle to control display of player number selector and main game.
@@ -59,18 +55,15 @@ export default function Game() {
   if (toggle) {
     return (
       <div className="flex flex-col items-center">
-<<<<<<< HEAD
-        <div className='absolute bg-red-800 h-screen left-0'>
+        <div className='absolute bg-red-900 border-2 border-x-amber-500 left-0'>
               <Table />
             </div>
           <img className='w-screen' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Risk_game_board.svg/600px-Risk_game_board.svg.png" alt="risk" />
-=======
           <img
             className='w-screen'
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Risk_game_board.svg/600px-Risk_game_board.svg.png"
             alt="Risk board game map."
           />
->>>>>>> 48360806c7be0812ac497f7a48ab984b0b6c30e4
           <div className="counters">
             
           </div>
