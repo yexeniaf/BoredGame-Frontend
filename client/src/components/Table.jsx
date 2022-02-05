@@ -32,7 +32,7 @@ export default function Table() {
                                 <td>{value.territory}</td>
                                 <td>
                                     {value.troops}
-                                     <Counter />
+                                    <Counter troops={0}/>
                                 </td>
                                 <td>
                                     {value.owner}
