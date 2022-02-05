@@ -55,15 +55,11 @@ export default function Game() {
   if (toggle) {
     return (
       <div className="flex flex-col items-center">
-<<<<<<< HEAD
           <img
             className='w-screen'
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Risk_game_board.svg/600px-Risk_game_board.svg.png"
             alt="Risk board game map."
           />
-=======
-          <img className='w-3/4 left-0 absolute' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Risk_game_board.svg/600px-Risk_game_board.svg.png" alt="risk" />
->>>>>>> d9b3606f30bc25e123aecf734ae13b3deafcb279
           <div className="counters">
             <div>
               <h2>Player 1 </h2>
