@@ -1,11 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
-import Counter from '../components/Counter';
-import Combat from '../components/Dice/Combat';
+// import Counter from '../components/Counter';
+// import Combat from '../components/Dice/Combat';
 import RollDice from '../components/Dice/RollDice';
 import RollOneDie from '../components/Dice/RollOneDie';
 import RollTwoDice from '../components/Dice/RollTwoDice';
 import PlayerCard from '../components/PlayerCard';
 import PlayerNumSelect from '../components/PlayerNumSelect';
+import SaveGameButton from '../components/SaveGameButton';
 import Setup from '../components/Setup';
 import Table from '../components/Table';
 import Turn from '../scripts/Turn.js';
@@ -14,8 +15,8 @@ export default function Game() {
   // Toggle to control display of player number selector and main game.
   const [toggle, setToggle] = useState(false);
   const initialRender = useRef(true);
-  const [troopNum1, setTroopNum1] = useState(8);
-  const [troopNum2, setTroopNum2] = useState(6);
+  // const [troopNum1, setTroopNum1] = useState(8);
+  // const [troopNum2, setTroopNum2] = useState(6);
 
   // Number of players:
   const [playerNum, setPlayerNum] = useState(2);
@@ -94,6 +95,12 @@ export default function Game() {
             >
               Next Turn
             </button>
+            {/* Currently the save button doesn't actually pass the territory information. That will need to be saved in state and passed down. */}
+            <SaveGameButton
+              playerNum = {playerNum}
+              territories = {"territories"}
+              turn = {currentTurn}
+            />
           </div>
       </div>
     );  
