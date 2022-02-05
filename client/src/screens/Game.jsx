@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import Counter from '../components/Counter';
 import Combat from '../components/Dice/Combat';
 import RollDice from '../components/Dice/RollDice';
 import RollOneDie from '../components/Dice/RollOneDie';
@@ -12,6 +13,7 @@ import Turn from '../scripts/Turn.js';
 export default function Game() {
   // Toggle to control display of player number selector and main game.
   const [toggle, setToggle] = useState(false);
+  const initialRender = useRef(true);
   const [troopNum1, setTroopNum1] = useState(8);
   const [troopNum2, setTroopNum2] = useState(6);
 
@@ -28,7 +30,11 @@ export default function Game() {
   
   // When the toggle is fired, make an array of playyers.
   useEffect(() => {
-    makePlayerArr();
+    if (initialRender.current) {
+      initialRender.current = false;
+    } else {
+      makePlayerArr();
+    }
   }, [toggle])
 
   // Player num is an integer, so we need to push components into an array and return the array in the return statement.
