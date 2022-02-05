@@ -52,3 +52,7 @@ td {
 .owners {
   padding: 3px;
 }
+
+.game {
+  display: flex;
+}
