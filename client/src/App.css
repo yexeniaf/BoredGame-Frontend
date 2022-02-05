@@ -26,9 +26,6 @@ form {
   align-items: center;
 }
 
-.input{
-  background-color: brown;
-}
 
 .counters {
   display: flex;
