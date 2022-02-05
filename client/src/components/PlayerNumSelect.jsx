@@ -8,6 +8,27 @@ export default function PlayerNumSelect(props) {
 
     const [input, setInput] = useState(default_input);
 
+    // Logic to set starting troops. This variable is sent to the game state.
+    let startingTroopAllotment;
+    if (input.playerNum === 2) {
+        console.log("playerNum:", input.playerNum);
+        startingTroopAllotment = 40;
+        } else if (input.playerNum === 3) {
+            console.log("playerNum:", input.playerNum);
+            startingTroopAllotment = 35;
+        } else if (input.playerNum === 4) {
+            console.log("playerNum:", input.playerNum);
+            startingTroopAllotment = 30;
+        } else if (input.playerNum === 5) {
+            console.log("playerNum:", input.playerNum);
+            startingTroopAllotment = 25;
+        } else if (input.playerNum === 6) {
+            console.log("playerNum:", input.playerNum);
+            startingTroopAllotment = 20;
+        } else {
+            console.log("Players must be 2-6.")
+        };
+
     const handleNumberInput = (e) => {
         const { id, valueAsNumber } = e.target;
         setInput((prevInput) => ({
@@ -16,9 +37,11 @@ export default function PlayerNumSelect(props) {
         }));
     };
 
+    // On submit, set the player numer, starting troops, and toggle to the main game.
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.setPlayerNum(input);
+        props.setPlayerNum(input.playerNum);
+        props.setStartingTroops(startingTroopAllotment)
         props.setToggle(true);
     };
 
