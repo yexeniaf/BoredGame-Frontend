@@ -7,7 +7,7 @@ export default function PlayerCard(props) {
   return (
     <div className='bg-amber-400 text-amber-800 w-60 flex p-2 m-3 flex-col items-start'>
         <h2 className='text-2xl font-serif'>Player {num}:</h2>
-        <div className='font-serif inline-flex'>Troops to Deploy: <Counter num={troops}/> </div>
+        <div className='font-serif inline-flex'>Troops to Deploy: <Counter troops={troops}/> </div>
     </div>
   );
 }

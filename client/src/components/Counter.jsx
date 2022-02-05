@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 export default function Counter(props) {
-    const [count, setCount] = useState(props.num);
+    const [count, setCount] = useState(props.troops);
     
     let increaseNum =()=>{
     if(count<180)
