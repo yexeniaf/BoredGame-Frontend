@@ -4,6 +4,7 @@ import Combat from '../components/Dice/Combat';
 import PlayerCard from '../components/PlayerCard';
 import PlayerNumSelect from '../components/PlayerNumSelect';
 import Setup from '../components/Setup';
+import Turn from '../scripts/Turn.js';
 
 export default function Game() {
   // Toggle to control display of player number selector and main game.
@@ -19,6 +20,8 @@ export default function Game() {
 
   // The starting troop allottment per player:
   const [startingTroops, setStartingTroops] = useState(0);
+
+  const [currentTurn, setCurrentTurn] = useState(1);
   
   // When the toggle is fired, make an array of playyers.
   useEffect(() => {
@@ -40,10 +43,20 @@ export default function Game() {
     setPlayers(playerArr)
   };
   
+  const handleTurnPass = () => {
+    // Sets the current turn to the output of the turn function.
+    setCurrentTurn(Turn(currentTurn, playerNum));
+  }
+
+
   if (toggle) {
     return (
       <div className="flex flex-col items-center">
-          <img className='w-screen' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Risk_game_board.svg/600px-Risk_game_board.svg.png" alt="risk" />
+          <img
+            className='w-screen'
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Risk_game_board.svg/600px-Risk_game_board.svg.png"
+            alt="Risk board game map."
+          />
           <div className="counters">
             <div>
               <h2>Player 1 </h2>
@@ -66,6 +79,15 @@ export default function Game() {
           <div className='absolute bg-red-800 h-screen right-0'>
             <h3>Player Stats</h3>
             {players}
+            <h4>It is player {currentTurn}'s turn!</h4>
+            <button
+              className="w-full flex items-center justify-center px-8 py-3 border
+              border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700
+              md:py-4 md:text-lg md:px-10"
+              onClick={handleTurnPass}
+            >
+              Next Turn
+            </button>
           </div>
       </div>
     );  
