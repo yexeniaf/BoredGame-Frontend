@@ -7,14 +7,32 @@ export default function SavedGames() {
   const [saved, setSaved] = useState([])
   let { id } = useParams();
 
-  useEffect(() => {
-    const fetchSavedGame = async() => {
-      const res = await api.get(id)
-      setSaved(res.data.saved)
-      console.log(res)
-    }
-    fetchSavedGame()
-  }, [id])
+  // const dummyData = [
+  //   {
+  //     playerNum: props.playerNum,
+  //     territories: dummy_territory,
+  //     turn: props.turn
+  //   },
+  //   {
+  //     playerNum: props.playerNum,
+  //     territories: dummy_territory,
+  //     turn: props.turn
+  //   },
+  //   {
+  //     playerNum: props.playerNum,
+  //     territories: dummy_territory,
+  //     turn: props.turn
+  //   }
+  // ]
+
+  // useEffect(() => {
+  //   const fetchSavedGame = async() => {
+  //     const res = await api.get(id)
+  //     setSaved(res.data.saved)
+  //     console.log(res)
+  //   }
+  //   fetchSavedGame()
+  // }, [id])
 
   return (
     <div>
