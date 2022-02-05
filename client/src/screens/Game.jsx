@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import { useEffect, useState, useRef } from 'react';
 import Counter from '../components/Counter';
-=======
-import React, { useEffect, useState } from 'react';
->>>>>>> ba55b345e40c5b96efaf8ab05e5eb82453551fad
 import Combat from '../components/Dice/Combat';
 import RollDice from '../components/Dice/RollDice';
 import RollOneDie from '../components/Dice/RollOneDie';
