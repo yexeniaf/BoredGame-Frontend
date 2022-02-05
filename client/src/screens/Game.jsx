@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Counter from '../components/Counter';
 import Combat from '../components/Dice/Combat';
-import RollDice from '../components/Dice/RollDice';
 import PlayerCard from '../components/PlayerCard';
 import PlayerNumSelect from '../components/PlayerNumSelect';
 import Setup from '../components/Setup';
@@ -9,6 +8,8 @@ import Setup from '../components/Setup';
 export default function Game() {
   const [toggle, setToggle] = useState(false);
   const [playerNum, setPlayerNum] = useState({ playerNum: 2 });
+  const [troopNum1, setTroopNum1] = useState(8);
+  const [troopNum2, setTroopNum2] = useState(6);
 
   if (toggle) {
     console.log("playerNum:", playerNum);
@@ -26,8 +27,12 @@ export default function Game() {
             </div>
           </div>
           <div className='flex p-5'>
-            <RollDice/>
-            <Combat troopNum1={3} troopNum2={2}/>
+            <Combat 
+            troopNum1={troopNum1} 
+            troopNum2={troopNum2}
+            setTroopNum1 ={setTroopNum1}
+            setTroopNum2={setTroopNum2}
+            />
             <Setup/>
           </div>
           <div className='absolute bg-red-800 h-screen right-0'>
@@ -44,3 +49,6 @@ export default function Game() {
     )
   }
 }
+
+
+
