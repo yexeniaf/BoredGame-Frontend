@@ -1,5 +1,6 @@
-import React from 'react';
+import { useState } from 'react';
 import Counter from './Counter';
+
 
 export default function Table() {
     const data = [
@@ -47,6 +48,21 @@ export default function Table() {
         { territory: "Western Australia", troops: "", owner: "" },
 
     ]
+    const [input, setInput] = useState();
+
+    const handleTextInput = (e) => {
+      const {name, value} = e.target;
+      setInput((prevInput) => ({
+        ...prevInput,
+        [name]: value,
+      }))
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+      }
+
+
   return( 
       <div className='results'>
     <div className='table'>
@@ -68,7 +84,7 @@ export default function Table() {
                         </td>
                         <td>
                             {value.owner}
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <input
                                     className='owners'
                                     type="text"
