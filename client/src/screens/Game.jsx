@@ -6,13 +6,10 @@ import PlayerNumSelect from '../components/PlayerNumSelect';
 import Setup from '../components/Setup';
 
 export default function Game() {
+  // Toggle to control display of player number selector and main game.
   const [toggle, setToggle] = useState(false);
-<<<<<<< HEAD
-=======
-  const [playerNum, setPlayerNum] = useState({ playerNum: 2 });
   const [troopNum1, setTroopNum1] = useState(8);
   const [troopNum2, setTroopNum2] = useState(6);
->>>>>>> 39d423a249dbed12fc438c68ea24e6d8d957ac45
 
   // Number of players:
   const [playerNum, setPlayerNum] = useState(2);
