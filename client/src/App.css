@@ -38,3 +38,20 @@ form {
     justify-content: space-around;
     border: black;
 }
+
+
+.table {
+    width: fit-content;
+  }
+
+th {
+  border-bottom: 1px solid black;
+}
+  
+td {
+  border: 1px solid #000000;
+}
+
+.owners {
+  padding: 3px;
+}
