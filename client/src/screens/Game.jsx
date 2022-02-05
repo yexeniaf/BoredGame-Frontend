@@ -4,6 +4,7 @@ import Combat from '../components/Dice/Combat';
 import PlayerCard from '../components/PlayerCard';
 import PlayerNumSelect from '../components/PlayerNumSelect';
 import Setup from '../components/Setup';
+import Table from '../components/Table';
 
 export default function Game() {
   const [toggle, setToggle] = useState(false);
@@ -15,16 +16,12 @@ export default function Game() {
     console.log("playerNum:", playerNum);
     return (
       <div className="flex flex-col items-center">
+        <div className='absolute bg-red-800 h-screen left-0'>
+              <Table />
+            </div>
           <img className='w-screen' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Risk_game_board.svg/600px-Risk_game_board.svg.png" alt="risk" />
           <div className="counters">
-            <div>
-              <h2>Player 1 </h2>
-              <Counter />
-            </div>
-            <div>
-              <h2>Player 2 </h2>
-              <Counter />
-            </div>
+            
           </div>
           <div className='flex p-5'>
             <Combat 
