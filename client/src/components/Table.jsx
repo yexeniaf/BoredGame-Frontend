@@ -4,10 +4,12 @@ import Counter from './Counter';
 import data from "../json/new-territory-data.json"
 
 export default function Table() {
-    const [values, setValues] = useState(data);
-    const [show, setShow] = useState(true);
+    // The values and useState help import the data from the JSON file created for the territories. 
+    const [values] = useState(data)
+    // This functions the table from being able to be opened or closed so they players can see the map image. 
+    const [show, setShow] = useState(true)
 
-    // This prevents the table from refreshing the page should the user press enter.
+    // prevents from the form for the owner to be defaulted to blank. 
     const handleSubmit = async (e) => {
         e.preventDefault();
     };

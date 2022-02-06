@@ -37,14 +37,14 @@ export default function SavedGames() {
   return (
     <div>
       <h1 className="saved">Saved</h1>
-    <div class="cards items-center h-screen">
-      <button class="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
+    <div className="cards items-center h-screen">
+      <button className="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
         Saved Game #1
       </button>
-      <button class="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
+      <button className="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
         Saved Game #2
       </button>
-      <button class="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
+      <button className="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
         Saved Game #3
       </button>
     </div>
