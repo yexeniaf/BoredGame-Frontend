@@ -14,6 +14,7 @@ export default function Table() {
         e.preventDefault();
     };
 
+    // Changes the text in button to show close or open.
     let expandCollapseLabel;
     if (show) {
         expandCollapseLabel = "Close";
