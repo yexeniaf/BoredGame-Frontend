@@ -1,22 +1,36 @@
 import { useState } from 'react';
+
 import Counter from './Counter';
 import data from "../mock-data.json"
 
-
 export default function Table() {
-    const [values, setValue] = useState(data)
-    const [show, setShow] = useState(true)
+    const [values, setValues] = useState(data);
+    const [show, setShow] = useState(true);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-      }
+    };
 
+    let expandCollapseLabel;
+    if (show) {
+        expandCollapseLabel = "Close";
+    } else if (!show) {
+        expandCollapseLabel = "Open";
+    };
 
-  return(
+return (
     <div>
-        <h1 className='text-lg font-bold text-yellow-50'>LeaderBoard</h1>
-        <button className="w-16 text-sm font-bold bg-amber-400 border-1 border-black rounded-sm m-2" onClick={()=> setShow(true)}>Open</button>
-        <button className="w-16 text-sm font-bold bg-amber-400 border-1 border-black rounded-sm m-2" onClick={()=> setShow(false)}>Close</button>
+        <h1
+            className='text-lg font-bold text-yellow-50'
+        >
+            LeaderBoard
+        </h1>
+        <button
+            className="w-16 text-sm font-bold bg-amber-400 border-1 border-black rounded-sm m-2"
+            onClick={()=> setShow(!show)}
+        >
+                {expandCollapseLabel}
+        </button>
         { show? 
             <div className='results'>
                 <div className='table'>
