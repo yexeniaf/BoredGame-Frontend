@@ -4,9 +4,12 @@ import data from "../mock-data.json"
 
 
 export default function Table() {
-    const [values, setValue] = useState(data)
+    // The values and useState help import the data from the JSON file created for the territories. 
+    const [values] = useState(data)
+    // This functions the table from being able to be opened or closed so they players can see the map image. 
     const [show, setShow] = useState(true)
 
+    // prevents from the form for the owner to be defaulted to blank. 
     const handleSubmit = async (e) => {
         e.preventDefault();
       }

@@ -1,8 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 
-// import Counter from '../components/Counter';
-// import Combat from '../components/Dice/Combat';
 import RollDice from '../components/Dice/RollDice';
 import RollOneDie from '../components/Dice/RollOneDie';
 import RollTwoDice from '../components/Dice/RollTwoDice';
@@ -21,6 +19,9 @@ const dummy_territory = {
 }
 
 export default function Game() {
+  // This opens or collapses the player stats board.
+  const [show, setShow] = useState(true)
+
   // Toggle to control display of player number selector and main game.
   const [toggle, setToggle] = useState(false);
 
@@ -92,7 +93,7 @@ export default function Game() {
   if (toggle) {
     return (
       <div className="flex flex-col items-center">
-        <img className='w-1/2 absolute left-1/3' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Risk_game_board.svg/600px-Risk_game_board.svg.png" alt="risk" />
+        <img className='w-1/2 absolute right-1/3' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Risk_game_board.svg/600px-Risk_game_board.svg.png" alt="risk" />
         <div className='absolute bg-red-900 border-2 border-x-amber-500 left-0'>
               <Table />
             </div>
@@ -113,10 +114,14 @@ export default function Game() {
             <RollOneDie/>
             <Setup/>
           </div>
-          <div className='absolute bg-red-900 h-screen right-0 border-2 border-x-amber-500'>
-            <h3>Player Stats</h3>
+          <div className='stats absolute bg-red-900 right-0 border-2 border-x-amber-500'>
+            <h3 className="text-lg font-bold text-yellow-50">Player Stats</h3>
+            <button className="w-16 text-sm font-bold bg-amber-400 border-1 border-black rounded-sm m-2" onClick={()=> setShow(true)}>Open</button>
+            <button className="w-16 text-sm font-bold bg-amber-400 border-1 border-black rounded-sm m-2" onClick={()=> setShow(false)}>Close</button>
+          { show? 
+           <div>
             {players}
-            <h4>It is player {currentTurn}'s turn!</h4>
+            <h4 className='text-lg font-bold text-yellow-50'>It is player {currentTurn}'s turn!</h4>
             <button
               className="w-full flex items-center justify-center px-8 py-3 border
               border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700
@@ -125,6 +130,7 @@ export default function Game() {
             >
               Next Turn
             </button>
+            <br/>
             {/* Currently the save button doesn't actually pass the territory information. That will need to be saved in state and passed down. */}
             <SaveGameButton
               playerNum = {playerNum}
@@ -133,6 +139,8 @@ export default function Game() {
               saveGame = {saveGame}
             />
           </div>
+ :null}
+      </div>
       </div>
     );  
   } else {

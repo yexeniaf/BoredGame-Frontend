@@ -15,10 +15,7 @@ export default function Counter(props) {
       setCount(count - 1);
      }
   }
- let handleChange = (e)=>{
-   setCount(e.target.value);
-  }
-
+ 
   return( 
     <div className="counter">
         <h1 className='font-bold'>{count}</h1>
