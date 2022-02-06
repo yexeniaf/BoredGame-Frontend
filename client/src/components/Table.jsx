@@ -1,12 +1,13 @@
 import { useState } from 'react';
 
 import Counter from './Counter';
-import data from "../mock-data.json"
+import data from "../json/new-territory-data.json"
 
 export default function Table() {
     const [values, setValues] = useState(data);
     const [show, setShow] = useState(true);
 
+    // This prevents the table from refreshing the page should the user press enter.
     const handleSubmit = async (e) => {
         e.preventDefault();
     };
@@ -18,55 +19,54 @@ export default function Table() {
         expandCollapseLabel = "Open";
     };
 
-return (
-    <div>
-        <h1
-            className='text-lg font-bold text-yellow-50'
-        >
-            LeaderBoard
-        </h1>
-        <button
-            className="w-16 text-sm font-bold bg-amber-400 border-1 border-black rounded-sm m-2"
-            onClick={()=> setShow(!show)}
-        >
-                {expandCollapseLabel}
-        </button>
-        { show? 
-            <div className='results'>
-                <div className='table'>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th className='text-yellow-50'>Territory</th>
-                                <th className='text-yellow-50'>Troops</th>
-                                <th className='text-yellow-50'>Owner</th>
-                            </tr>
-                            {values.map((value) => {
-                                return (
-                                    <tr>
-                                        <td>{value.territory}</td>
-                                        <td>
-                                            {value.troops}
-                                            <Counter troops={0}/>
-                                        </td>
-                                        <td>
-                                            {value.owner}
-                                            <form onSubmit={handleSubmit}>
-                                                <input
-                                                    className='owners'
-                                                    type="text"
-                                                    placeholder='Territory Owner'
-                                                />
-                                            </form>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </table>
+    return (
+        <div>
+            <h1
+                className='text-lg font-bold text-yellow-50'
+            >
+                LeaderBoard
+            </h1>
+            <button
+                className="w-16 text-sm font-bold bg-amber-400 border-1 border-black rounded-sm m-2"
+                onClick={()=> setShow(!show)}
+            >
+                    {expandCollapseLabel}
+            </button>
+            { show? 
+                <div className='results'>
+                    <div className='table'>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th className='text-yellow-50'>Territory</th>
+                                    <th className='text-yellow-50'>Troops</th>
+                                    <th className='text-yellow-50'>Owner</th>
+                                </tr>
+                                {values.map((value) => {
+                                    return (
+                                        <tr>
+                                            <td>{value.territory}</td>
+                                            <td>
+                                                <Counter troops={value.troops}/>
+                                            </td>
+                                            <td>
+                                                {value.owner}
+                                                <form onSubmit={handleSubmit}>
+                                                    <input
+                                                        className='owners'
+                                                        type="text"
+                                                        placeholder='Territory Owner'
+                                                    />
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-        :null}
-    </div>
-  )
+            :null}
+        </div>
+    )
 }
