@@ -56,3 +56,7 @@ td {
 .game {
   display: flex;
 }
+
+.stats {
+  padding: 5px;
+}
