@@ -41,22 +41,32 @@ export default function PlayerNumSelect(props) {
     };
 
     // Form with slider and button.
-    return (    
+    return (  
+        <div>
+            <div>
+            <h1 className="text-3xl font-extrabold tracking-tight text-indigo-500 sm:text-4xl"> Objective of the Game:</h1>
+            <br/>
+            <p className="tracking-tight text-gray-900 sm:text-xl">To conquer the world by occupying all territories on the board. You need to eliminate all your opponents!</p>
+            </div>
+        <div className='inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full'>  
         <form
-            className="bg-orange-400 p-10 text-white"
+            className=" bg-stone-900 p-20 text-white "
             id="playerNumForm"
             onSubmit={handleSubmit}
         >
             <label
                 htmlFor="playerNum"
+                className="sm:text-xl font-semibold"
             >
                 Select Number of Players: 
             </label>
             <span
+                className="sm:text-xl font-semibold"
                 id="playerNumOutput"
             >
                 {input.playerNum}
             </span>
+            <br/>
             <input
                 id="playerNum"
                 type="range"
@@ -66,8 +76,9 @@ export default function PlayerNumSelect(props) {
                 max="6"
                 step="1"
                 onChange={handleNumberInput}
-                className="ml-2 appearance-none h-1 bg-black rounded-lg outline-none slider"
+                className="ml-2 appearance-none h-1 bg-white rounded-lg outline-none slider"
             />
+            <br/>
             <button
                 className="w-full flex items-center justify-center px-8 py-3 border border-transparent mt-6
                     text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 
@@ -76,5 +87,7 @@ export default function PlayerNumSelect(props) {
                 Start
             </button>
         </form>
+        </div>
+        </div>
     );
 };
