@@ -7,6 +7,8 @@ export default function Table(props) {
     // This functions the table from being able to be opened or closed so they players can see the map image. 
     const [show, setShow] = useState(true)
 
+    // const [input, setInput] = useState({})
+
     const [tableTerritories, setTableTerritories] = useState(props.territories)
 
     // prevents from the form for the owner to be defaulted to blank. 
@@ -15,8 +17,8 @@ export default function Table(props) {
     };
 
     const handleChange = () => {
+        // setTableTerritories()
         console.log(tableTerritories)
-        // handleInput();
         props.setTerritories(tableTerritories)
     }
 
@@ -43,11 +45,7 @@ export default function Table(props) {
             </button>
             { show? 
                 <div className='results'>
-                    <form
-                        onSubmit={handleSubmit}
-                        onChange={handleChange}
-                    >
-                        <div className='table'>
+                    <div className='table'>
                             <table>
                                 <tbody>
                                     <tr>
@@ -60,25 +58,24 @@ export default function Table(props) {
                                             <tr
                                                 key={i}
                                             >
-                                                <td>{territory.territory}</td>
-                                                <td>
-                                                    <TerritoryTroopCounter
-                                                        troops = {territory.troops}
-                                                    />
-                                                </td>
-                                                <td>
-                                                    <TerrOwnerSlider
-                                                        playerNum = {props.playerNum}
-                                                        owner = {territory.owner}
-                                                    />
-                                                </td>
-                                            </tr>
+                                                    <td>{territory.territory}</td>
+                                                    <td>
+                                                        <TerritoryTroopCounter
+                                                            troops = {territory.troops}
+                                                        />
+                                                    </td>
+                                                    <td>
+                                                        <TerrOwnerSlider
+                                                            playerNum = {props.playerNum}
+                                                            owner = {territory.owner}
+                                                        />
+                                                    </td>
+                                        </tr>
                                         )
                                     })}
                                 </tbody>
                             </table>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             :null}
         </div>
