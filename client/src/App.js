@@ -10,6 +10,7 @@ import Account from "./screens/Account";
 import ErrorPage from "./screens/ErrorPage";
 import SavedGames from "./screens/SavedGames";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Boggle from "./screens/Boggle";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/error" element={<ErrorPage/>}/>
         <Route path="/boggle" element={<Boggle/>}/>
       </Routes>
+      <Footer />
 
     </div>
   );
