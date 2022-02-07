@@ -25,7 +25,7 @@ export default function Table(props) {
     };
 
     return (
-        <div className='table-container'>
+        <div>
             <h1
                 className='text-lg font-bold text-yellow-50'
             >
