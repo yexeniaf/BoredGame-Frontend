@@ -32,8 +32,7 @@ export default function SavedGames() {
         className="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10 m-2 hover:scale-125 transition flex flex-col"
         >
         <button onClick={()=> loadGame(e._id)}>
-          <button className="text-red-900">Load Game</button>
-          <br />
+          <div className="text-red-900">Load Game</div>
           Saved Game #{i + 1}
           <br />
           Number of Players: {e.playerNum}
