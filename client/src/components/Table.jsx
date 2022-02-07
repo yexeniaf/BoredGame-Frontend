@@ -2,10 +2,12 @@ import { useState } from 'react';
 
 import Counter from './Counter';
 import data from "../json/new-territory-data.json"
+import TerrOwnerSlider from './TerrOwnerSlider.jsx';
 
-export default function Table() {
+export default function Table(props) {
     // The values and useState help import the data from the JSON file created for the territories. 
     const [values] = useState(data)
+
     // This functions the table from being able to be opened or closed so they players can see the map image. 
     const [show, setShow] = useState(true)
 
@@ -45,20 +47,20 @@ export default function Table() {
                                     <th className='text-yellow-50'>Troops</th>
                                     <th className='text-yellow-50'>Owner</th>
                                 </tr>
-                                {values.map((value) => {
+                                {values.map((value, i) => {
                                     return (
-                                        <tr>
+                                        <tr
+                                            key={i}
+                                        >
                                             <td>{value.territory}</td>
                                             <td>
                                                 <Counter troops={value.troops}/>
                                             </td>
                                             <td>
-                                                {value.owner}
                                                 <form onSubmit={handleSubmit}>
-                                                    <input
-                                                        className='owners'
-                                                        type="text"
-                                                        placeholder='Territory Owner'
+                                                    <TerrOwnerSlider
+                                                        playerNum = {props.playerNum}
+                                                        owner = {value.owner}
                                                     />
                                                 </form>
                                             </td>
