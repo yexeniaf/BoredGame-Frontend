@@ -23,7 +23,7 @@ export default function TerrOwnerSlider(props) {
                 max={props.playerNum}
                 step="1"
                 onChange={handleNumberInput}
-                className="ml-2 appearance-none h-1 bg-black rounded-lg outline-none slider"
+                className="ml-2 appearance-none h-1 bg-white rounded-lg outline-none slider"
             />
         </div>
     )

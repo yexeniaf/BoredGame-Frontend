@@ -37,7 +37,7 @@ export default function Login() {
     }
 
     return (
-      <div className="flex flex-col items-center">
+      <div className="shadow sm:rounded-md sm:overflow-hidden">
           <h2 id="login">Login</h2>
           <form onSubmit={handleSubmit} className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70">
               <label htmlFor="email">E-mail:</label>

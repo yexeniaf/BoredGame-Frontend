@@ -52,11 +52,11 @@ export default function Table(props) {
                                         <tr
                                             key={i}
                                         >
-                                            <td>{value.territory}</td>
-                                            <td>
+                                            <td className='text-yellow-50'>{value.territory}</td>
+                                            <td className='text-yellow-50'>
                                                 <Counter troops={value.troops}/>
                                             </td>
-                                            <td>
+                                            <td className='text-yellow-50'>
                                                 <form onSubmit={handleSubmit}>
                                                     <TerrOwnerSlider
                                                         playerNum = {props.playerNum}
