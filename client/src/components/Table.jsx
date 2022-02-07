@@ -1,20 +1,31 @@
 import { useState } from 'react';
 
 import Counter from './Counter';
-import data from "../json/new-territory-data.json"
 import TerrOwnerSlider from './TerrOwnerSlider.jsx';
 
 export default function Table(props) {
-    // The values and useState help import the data from the JSON file created for the territories. 
-    const [values] = useState(data)
-
     // This functions the table from being able to be opened or closed so they players can see the map image. 
     const [show, setShow] = useState(true)
+
+    const [tableTerritories, setTableTerritories] = useState(props.territories)
 
     // prevents from the form for the owner to be defaulted to blank. 
     const handleSubmit = async (e) => {
         e.preventDefault();
     };
+
+    function handleInput(e) {
+        const { id, value } = e.target;
+        setTableTerritories((prevInput) => ({
+            ...prevInput,
+            [id]: value,
+        }));
+    };
+
+    const handleChange = () => {
+        handleInput();
+        props.setTerritories(tableTerritories)
+    }
 
     // Changes the text in button to show close or open.
     let expandCollapseLabel;
@@ -39,37 +50,40 @@ export default function Table(props) {
             </button>
             { show? 
                 <div className='results'>
-                    <div className='table'>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th className='text-yellow-50'>Territory</th>
-                                    <th className='text-yellow-50'>Troops</th>
-                                    <th className='text-yellow-50'>Owner</th>
-                                </tr>
-                                {values.map((value, i) => {
-                                    return (
-                                        <tr
-                                            key={i}
-                                        >
-                                            <td>{value.territory}</td>
-                                            <td>
-                                                <Counter troops={value.troops}/>
-                                            </td>
-                                            <td>
-                                                <form onSubmit={handleSubmit}>
+                    <form
+                        onSubmit={handleSubmit}
+                        onChange={handleChange}
+                    >
+                        <div className='table'>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th className='text-yellow-50'>Territory</th>
+                                        <th className='text-yellow-50'>Troops</th>
+                                        <th className='text-yellow-50'>Owner</th>
+                                    </tr>
+                                    {tableTerritories.map((territory, i) => {
+                                        return (
+                                            <tr
+                                                key={i}
+                                            >
+                                                <td>{territory.territory}</td>
+                                                <td>
+                                                    <Counter troops={territory.troops}/>
+                                                </td>
+                                                <td>
                                                     <TerrOwnerSlider
                                                         playerNum = {props.playerNum}
-                                                        owner = {value.owner}
+                                                        owner = {territory.owner}
                                                     />
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    )
-                                })}
-                            </tbody>
-                        </table>
-                    </div>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })}
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
                 </div>
             :null}
         </div>
