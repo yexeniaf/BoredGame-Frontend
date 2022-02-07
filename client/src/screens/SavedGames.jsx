@@ -22,6 +22,7 @@ export default function SavedGames() {
   //   }
   // ]
 
+
   useEffect(() => {
     const fetchSavedGame = async() => {
       const res = await axios.get(`http://localhost:4000/gamestate`)
@@ -45,6 +46,8 @@ export default function SavedGames() {
         Number of Players: {e.playerNum}
         <br />
         Current Turn: {e.turn}
+        <br />
+        <button className="text-blue-600">Delete File</button>
          </div>
       })}
     </div>
