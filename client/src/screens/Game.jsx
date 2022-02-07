@@ -35,8 +35,6 @@ export default function Game() {
   // The starting troop allottment per player:
   const [startingTroops, setStartingTroops] = useState(0);
 
-  const [currentTurn, setCurrentTurn] = useState(1);
-
     // Changes the text in button to show close or open.
     let expandCollapseLabel;
     if (show) {
