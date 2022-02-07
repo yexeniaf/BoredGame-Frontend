@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SavedGames() {
   const [saved, setSaved] = useState([])
+  const navigate = useNavigate();
 
   // const dummyData = [
   //   {
@@ -22,6 +24,10 @@ export default function SavedGames() {
   //   }
   // ]
 
+  const handleClick = async(id)=>{
+    await axios.delete(`https://boredgame-backend.herokuapp.com/gamestate/${id}`);
+    navigate("/")
+  }
 
   useEffect(() => {
     const fetchSavedGame = async() => {
@@ -47,7 +53,7 @@ export default function SavedGames() {
         <br />
         Current Turn: {e.turn}
         <br />
-        <button className="text-blue-600">Delete File</button>
+        <button className="text-blue-600" onClick={() => handleClick(e._id)}>Delete File</button>
          </div>
       })}
     </div>
