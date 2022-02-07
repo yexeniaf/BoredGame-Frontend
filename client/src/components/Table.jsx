@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import TerritoryTroopCounter from './TerritoryTroopCounter.jsx';
 
-import Counter from './Counter';
 import TerrOwnerSlider from './TerrOwnerSlider.jsx';
 
 export default function Table(props) {
@@ -14,16 +14,9 @@ export default function Table(props) {
         e.preventDefault();
     };
 
-    function handleInput(e) {
-        const { id, value } = e.target;
-        setTableTerritories((prevInput) => ({
-            ...prevInput,
-            [id]: value,
-        }));
-    };
-
     const handleChange = () => {
-        handleInput();
+        console.log(tableTerritories)
+        // handleInput();
         props.setTerritories(tableTerritories)
     }
 
@@ -69,7 +62,9 @@ export default function Table(props) {
                                             >
                                                 <td>{territory.territory}</td>
                                                 <td>
-                                                    <Counter troops={territory.troops}/>
+                                                    <TerritoryTroopCounter
+                                                        troops = {territory.troops}
+                                                    />
                                                 </td>
                                                 <td>
                                                     <TerrOwnerSlider
