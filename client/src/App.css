@@ -40,6 +40,7 @@ form {
 
 .table {
     width: fit-content;
+    margin-bottom: 70px;
   }
 
 th {
@@ -60,4 +61,15 @@ td {
 
 .stats {
   padding: 5px;
+}
+
+.social-media {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
 }

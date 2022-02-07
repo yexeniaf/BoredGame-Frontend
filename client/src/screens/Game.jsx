@@ -42,6 +42,14 @@ export default function Game() {
   const [startingTroops, setStartingTroops] = useState(0);
 
   const [currentTurn, setCurrentTurn] = useState(1);
+
+    // Changes the text in button to show close or open.
+    let expandCollapseLabel;
+    if (show) {
+        expandCollapseLabel = "Close";
+    } else if (!show) {
+        expandCollapseLabel = "Open";
+    };
   
   // When the toggle is fired, make an array of playyers.
   useEffect(() => {
@@ -110,7 +118,7 @@ export default function Game() {
             setTroopNum2={setTroopNum2}
             />
           </div> */}
-          <div className='fixed bottom-0 right-72 flex p-5 bg-red-900 border-2 border-x-amber-500 rounded-xl'>
+          <div className='fixed bottom-14 right-72 flex p-5 bg-red-900 border-2 border-x-amber-500 rounded-xl'>
             <RollDice/>
             <RollTwoDice/>
             <RollOneDie/>
@@ -118,8 +126,12 @@ export default function Game() {
           </div>
           <div className='stats absolute bg-red-900 right-0 border-2 border-x-amber-500'>
             <h3 className="text-lg font-bold text-yellow-50">Player Stats</h3>
-            <button className="w-16 text-sm font-bold bg-amber-400 border-1 border-black rounded-sm m-2" onClick={()=> setShow(true)}>Open</button>
-            <button className="w-16 text-sm font-bold bg-amber-400 border-1 border-black rounded-sm m-2" onClick={()=> setShow(false)}>Close</button>
+            <button
+                className="w-16 text-sm font-bold bg-amber-400 border-1 border-black rounded-sm m-2"
+                onClick={()=> setShow(!show)}
+            >
+                    {expandCollapseLabel}
+            </button>
           { show? 
            <div>
             {players}
