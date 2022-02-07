@@ -60,3 +60,14 @@ td {
 .stats {
   padding: 5px;
 }
+
+.social-media {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+}

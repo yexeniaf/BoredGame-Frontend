@@ -110,7 +110,7 @@ export default function Game() {
             setTroopNum2={setTroopNum2}
             />
           </div> */}
-          <div className='fixed bottom-0 right-72 flex p-5 bg-red-900 border-2 border-x-amber-500 rounded-xl'>
+          <div className='fixed bottom-14 right-72 flex p-5 bg-red-900 border-2 border-x-amber-500 rounded-xl'>
             <RollDice/>
             <RollTwoDice/>
             <RollOneDie/>
