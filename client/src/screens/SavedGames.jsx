@@ -7,47 +7,58 @@ export default function SavedGames() {
   const [saved, setSaved] = useState([])
   let { id } = useParams();
 
-  // const dummyData = [
-  //   {
-  //     playerNum: props.playerNum,
-  //     territories: dummy_territory,
-  //     turn: props.turn
-  //   },
-  //   {
-  //     playerNum: props.playerNum,
-  //     territories: dummy_territory,
-  //     turn: props.turn
-  //   },
-  //   {
-  //     playerNum: props.playerNum,
-  //     territories: dummy_territory,
-  //     turn: props.turn
-  //   }
-  // ]
+  const dummyData = [
+    {
+      playerNum: '3',
+      territories: 'territories',
+      turn: '3'
+    },
+    {
+      playerNum: '4',
+      territories: 'territories',
+      turn: '2'
+    },
+    {
+      playerNum: '5',
+      territories:'territories' ,
+      turn: '1' 
+    }
+  ]
 
-  // useEffect(() => {
-  //   const fetchSavedGame = async() => {
-  //     const res = await api.get(id)
-  //     setSaved(res.data.saved)
-  //     console.log(res)
-  //   }
-  //   fetchSavedGame()
-  // }, [id])
+  useEffect(() => {
+    const fetchSavedGame = async() => {
+      const res = await api.get(id)
+      setSaved(res.data.saved)
+      console.log(res)
+    }
+    fetchSavedGame()
+  }, [id])
 
   return (
-    <div>
+    <div className='bg-cover bg-[url(https://img.wallpapic.com/i3792-323-47/medium/dice-game-games-casino-board-wallpaper.jpg)]'>
       <h1 className="saved">Saved</h1>
     <div class="cards items-center h-screen">
-      <button class="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
-        Saved Game #1
-      </button>
-      <button class="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
-        Saved Game #2
-      </button>
-      <button class="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
-        Saved Game #3
-      </button>
+      {dummyData.map((e, i)=>{
+        return <button key={i} className="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
+        Saved Game #{i + 1}
+        <br />
+        Number of Players: {e.playerNum}
+        <br />
+        Current Turn: {e.turn}
+         </button>
+      })}
     </div>
     </div>
     );
 }
+
+
+// <button class="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
+// Saved Game #1
+// </button>
+// <button class="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
+// Saved Game #2
+// </button>
+// <button class="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
+// Saved Game #3
+// </button>
