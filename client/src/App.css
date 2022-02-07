@@ -14,9 +14,10 @@
 
 .cards {
   display: flex;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
   font-size: large;
 }
 
@@ -55,4 +56,8 @@ td {
 
 .game {
   display: flex;
+}
+
+.stats {
+  padding: 5px;
 }
