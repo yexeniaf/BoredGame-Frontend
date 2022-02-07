@@ -14,10 +14,11 @@
 
 .cards {
   display: flex;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  font-size: xx-large;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  font-size: large;
 }
 
 form {
@@ -39,6 +40,7 @@ form {
 
 .table {
     width: fit-content;
+    margin-bottom: 70px;
   }
 
 th {
@@ -59,4 +61,15 @@ td {
 
 .stats {
   padding: 5px;
+}
+
+.social-media {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
 }
