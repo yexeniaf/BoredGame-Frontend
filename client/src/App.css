@@ -14,10 +14,11 @@
 
 .cards {
   display: flex;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  font-size: xx-large;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  font-size: large;
 }
 
 form {
