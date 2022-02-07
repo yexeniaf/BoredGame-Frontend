@@ -41,7 +41,7 @@ export default function Signup() {
   return (
     <div className="flex flex-col items-center">
       <form
-        className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70"
+        className="flex flex-col items-center bg-gray-400 m-5 p-5 w-70"
         onSubmit={handleSubmit}
       >
         <h2>Signup</h2>
