@@ -12,6 +12,17 @@
   align-items: center;
 }
 
+.risk-logo {
+  display: flex;
+  height: 90px;
+}
+
+.risk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .links{
   margin-top: 6px;
   display: flex;
@@ -83,3 +94,4 @@ td {
   display: flex;
   justify-content: space-around;
 }
+
