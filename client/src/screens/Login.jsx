@@ -1,40 +1,41 @@
-import axios from "axios";
+import { loginUser } from "../services/apiConfig";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const default_user = {
-    email: "",
-    password_digest: ""
-}
+  email: "",
+  password_digest: "",
+};
 
 export default function Login() {
-    const [input, setInput] = useState(default_user);
-  
-    const navigate = useNavigate();
+  const [input, setInput] = useState(default_user);
 
-    const handleTextInput = (e) => {
-        const { name, value } = e.target;
-        setInput((prevInput) => ({
-          ...prevInput,
-          [name]: value,
-        }));
-    };
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-      e.preventDefault()
-      try {
-        const res = await axios.post(`https://boredgame-backend.herokuapp.com/login`, input)
-        navigate(`/account/${res.data.data.user._id}`)
-      } catch (error) {
-        console.error(error)
-          setInput({
-          isError: true,
-          errorMsg: 'Invalid Credentials',
-          email: '',
-          password_digest: '',
-        })
-      }   
+  const handleTextInput = (e) => {
+    const { name, value } = e.target;
+    setInput((prevInput) => ({
+      ...prevInput,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await loginUser(input);
+      localStorage.setItem("token", res.data.token);
+      navigate(`/account/${res.data.user._id}`);
+    } catch (error) {
+      console.error(error);
+      setInput({
+        isError: true,
+        errorMsg: "Invalid Credentials",
+        email: "",
+        password_digest: "",
+      });
     }
+  };
 
     return (
       <div className=" flex flex-col items-center">
