@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+.logo{
+  height: 40px;
+}
+
+.brand{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .links{
   margin-top: 6px;
   display: flex;
