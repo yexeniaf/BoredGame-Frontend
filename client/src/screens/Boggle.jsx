@@ -43,14 +43,15 @@ export default function Boggle() {
     
     useEffect(()=>{
         arr.map((e)=>{
-            arr2.push(e[DieRoll()]);
+            return arr2.push(e[DieRoll()]);
         })
         setNewArr(shuffle(arr2))
+    // eslint-disable-next-line    
     },[toggle])
 
 
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center h-screen'>
         <h1 className='text-4xl m-5'>Boggle</h1>
         <div className='bg-blue-800 h-96 w-96 grid grid-cols-4 grid-rows-4 gap-2 p-3'>
             {newArr.map((e, i)=>{
@@ -61,7 +62,7 @@ export default function Boggle() {
                 )
             })}
         </div>
-        <button onClick={()=> handleClick()} className='text-2xl m-4'>Start!</button>
+        <button onClick={()=> handleClick()} className='text-2xl m-4 '>Start!</button>
     </div>
     );
 }
