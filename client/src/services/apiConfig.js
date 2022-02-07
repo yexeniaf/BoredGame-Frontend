@@ -60,3 +60,16 @@ axios({
 .catch((error)=>{
   console.log(error);
 })
+
+export const logoutUser = () => {
+  axios({
+    method: "get",
+    url: `${apiUrl}/logout`,
+  })
+  .then((response)=>{
+    return response.data
+  })
+  .catch((error)=>{
+    console.log(error);
+  })
+}

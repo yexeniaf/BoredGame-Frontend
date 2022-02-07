@@ -1,8 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { logoutUser } from "../services/apiConfig";
 
 export default function Navbar(props) {
   const token = localStorage.getItem("token");
+
+  let navigate = useNavigate();
+  const handleLogout = (e) => {
+    e.preventDefault();
+    logoutUser();
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    navigate("/logout");
+  };
 
   return (
     <nav className="nav text-lg px-4 py-4 bg-black">
@@ -26,7 +36,14 @@ export default function Navbar(props) {
             <Link to="/account/:id">Account Information</Link>
           </li>
           <li>
-            <Link to="/logout">Logout</Link>
+            <Link
+              to="/logout"
+              onClick={(e) => {
+                handleLogout(e);
+              }}
+            >
+              Logout
+            </Link>
           </li>
         </ul>
       ) : (

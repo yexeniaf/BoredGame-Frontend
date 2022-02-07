@@ -13,6 +13,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Boggle from "./screens/Boggle";
 import PrivateRoute from "./components/PrivateRoute";
+import Logout from "./components/Logout";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/home" element={<HomePage />} />
         <Route exact element={<PrivateRoute />}>
           <Route path="/account/:id" element={<Account />} />
