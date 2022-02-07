@@ -43,7 +43,8 @@ export default function PlayerNumSelect(props) {
     // Form with slider and button.
     return (  
         <div>
-            <div>
+            <div className="risk">
+                <img className="risk-logo" src="https://mm.aiircdn.com/122/58133675a8bdc.jpg" alt="risk logo"/>
             <h1 className="text-3xl font-extrabold tracking-tight text-indigo-500 sm:text-4xl"> Objective of the Game:</h1>
             <br/>
             <p className="tracking-tight text-gray-900 sm:text-xl">To conquer the world by occupying all territories on the board. You need to eliminate all your opponents!</p>
