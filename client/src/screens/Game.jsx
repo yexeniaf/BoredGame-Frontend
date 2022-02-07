@@ -104,14 +104,6 @@ export default function Game() {
           <div className="counters">
             
           </div>
-          {/* <div className='flex p-5'>
-            <Combat 
-            troopNum1={troopNum1} 
-            troopNum2={troopNum2}
-            setTroopNum1 ={setTroopNum1}
-            setTroopNum2={setTroopNum2}
-            />
-          </div> */}
           <div className='fixed bottom-14 right-72 flex p-5 bg-red-900 border-2 border-x-amber-500 rounded-xl'>
             <RollDice/>
             <RollTwoDice/>
