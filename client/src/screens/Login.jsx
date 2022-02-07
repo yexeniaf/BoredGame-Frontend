@@ -37,9 +37,11 @@ export default function Login() {
     }
 
     return (
-      <div className="shadow sm:rounded-md sm:overflow-hidden">
+      <div className="signin flex flex-col items-center">
+          <form onSubmit={handleSubmit} className="flex flex-col items-center bg-gray-300 m-5 p-10 w-90">
+          <img className='logo' src="https://www.seekpng.com/png/full/70-707290_svg-black-and-white-arcade-clipart-arcade-machine.png" alt="arcade game"/>
           <h2 id="login">Login</h2>
-          <form onSubmit={handleSubmit} className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70">
+          <br/>
               <label htmlFor="email">E-mail:</label>
               <input 
                 type="text" 
