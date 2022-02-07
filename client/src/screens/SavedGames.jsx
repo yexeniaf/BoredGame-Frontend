@@ -1,32 +1,16 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function SavedGames() {
-  const [saved, setSaved] = useState([])
-  const navigate = useNavigate();
+  const [saved, setSaved] = useState([]);
 
-  // const dummyData = [
-  //   {
-  //     playerNum: '3',
-  //     territories: 'territories',
-  //     turn: '3'
-  //   },
-  //   {
-  //     playerNum: '4',
-  //     territories: 'territories',
-  //     turn: '2'
-  //   },
-  //   {
-  //     playerNum: '5',
-  //     territories:'territories' ,
-  //     turn: '1' 
-  //   }
-  // ]
+  const loadGame = async(id) => {
+    await axios.get(`https://boredgame-backend.herokuapp.com/gamestate/${id}`);
+  }
 
   const handleClick = async(id)=>{
     await axios.delete(`https://boredgame-backend.herokuapp.com/gamestate/${id}`);
-    navigate("/")
+    window.location.reload();
   }
 
   useEffect(() => {
@@ -45,14 +29,16 @@ export default function SavedGames() {
       {saved.map((e, i)=>{
         return <div 
         key={i} 
-        className="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10 m-2 hover:scale-125"
+        className="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10 m-2 hover:scale-125 transition flex flex-col"
         >
-        Saved Game #{i + 1}
-        <br />
-        Number of Players: {e.playerNum}
-        <br />
-        Current Turn: {e.turn}
-        <br />
+        <button onClick={()=> loadGame(e._id)}>
+          <div className="text-red-900">Load Game</div>
+          Saved Game #{i + 1}
+          <br />
+          Number of Players: {e.playerNum}
+          <br />
+          Current Turn: {e.turn}
+        </button>
         <button className="text-blue-600" onClick={() => handleClick(e._id)}>Delete File</button>
          </div>
       })}
@@ -60,14 +46,3 @@ export default function SavedGames() {
     </div>
     );
 }
-
-
-// <button class="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
-// Saved Game #1
-// </button>
-// <button class="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
-// Saved Game #2
-// </button>
-// <button class="bg-orange-400 text-white font-bold rounded-lg border shadow-lg p-10">
-// Saved Game #3
-// </button>

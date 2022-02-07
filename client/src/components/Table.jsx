@@ -58,13 +58,13 @@ export default function Table(props) {
                                             <tr
                                                 key={i}
                                             >
-                                                    <td>{territory.territory}</td>
-                                                    <td>
+                                                    <td className='text-yellow-50'>{territory.territory}</td>
+                                                    <td className>
                                                         <TerritoryTroopCounter
                                                             troops = {territory.troops}
                                                         />
                                                     </td>
-                                                    <td>
+                                                    <td className='text-yellow-50'>
                                                         <TerrOwnerSlider
                                                             playerNum = {props.playerNum}
                                                             owner = {territory.owner}
