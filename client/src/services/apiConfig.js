@@ -9,21 +9,20 @@ const api = axios.create({
 
 export default api;
 
-export const newUser = (props) => 
-axios({
-  method: "post",
-  url: `${apiUrl}signup`,
-  data: props,
-})
-.then((response) => {
-  console.log(response.data)
-  return response.data;
-})
-.catch((error) => {
-  console.log(error)
-})
+export const createUser = (props) =>
+  axios({
+    method: "post",
+    url: `${apiUrl}signup`,
+    data: props,
+  })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
-export const loginUser = (props) => {
+export const loginUser = (props) => 
   axios({
     method: "post",
     url: `${apiUrl}login`,
@@ -36,7 +35,6 @@ export const loginUser = (props) => {
   .catch((error) => {
     console.log(error)
   })
-}
 
 export const getUser = (props) =>
 axios({
@@ -62,3 +60,16 @@ axios({
 .catch((error)=>{
   console.log(error);
 })
+
+export const logoutUser = () => {
+  axios({
+    method: "get",
+    url: `${apiUrl}/logout`,
+  })
+  .then((response)=>{
+    return response.data
+  })
+  .catch((error)=>{
+    console.log(error);
+  })
+}
