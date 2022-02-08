@@ -63,6 +63,7 @@ export default function Game() {
       }
       const res = await axios.post(`https://boredgame-backend.herokuapp.com/gamestate`, gameState);
       const gameId = res.data.data._id;
+      console.log(id);
       await axios.get(`https://boredgame-backend.herokuapp.com/gamestate/${id}/${gameId}`);
       alert("Saved!");
   
