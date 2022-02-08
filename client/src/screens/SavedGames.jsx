@@ -10,7 +10,6 @@ export default function SavedGames() {
   const loadGame = async(id) => {
     const res = await axios.get(`https://boredgame-backend.herokuapp.com/gamestate/${id}`);
     const loadData = res.data.data.Game;
-    console.log(loadData);
     sessionStorage.setItem('playerNum', loadData.playerNum);
     sessionStorage.setItem('turn', loadData.turn);
     navigate("/load_game")

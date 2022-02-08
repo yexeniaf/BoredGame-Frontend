@@ -19,24 +19,13 @@ export default function Game() {
 
   // Toggle to control display of player number selector and main game.
   const [toggle, setToggle] = useState(false);
-
   const initialRender = useRef(true);
-
-  // Number of players:
   const [playerNum, setPlayerNum] = useState(2);
-
-  // Sets initial state for territories. 
   const [territories, setTerritories] = useState(defaultTerritories)
-
   const [currentTurn, setCurrentTurn] = useState(1);
-
-  // An array with player card elements eqaul to the number of players:
   const [players, setPlayers] = useState([]);
-
-  // The starting troop allottment per player:
   const [startingTroops, setStartingTroops] = useState(0);
 
-    // Changes the text in button to show close or open.
     let expandCollapseLabel;
     if (show) {
         expandCollapseLabel = "Close";
@@ -70,7 +59,6 @@ export default function Game() {
       }
       const res = await axios.post(`https://boredgame-backend.herokuapp.com/gamestate`, gameState);
       const gameId = res.data.data._id;
-      console.log(id);
       await axios.get(`https://boredgame-backend.herokuapp.com/gamestate/${id}/${gameId}`);
       alert("Saved!");
   
@@ -79,8 +67,7 @@ export default function Game() {
         console.error("Error Saving Game. Contact project owner.")
     };
   };
-
-  // Player num is an integer, so we need to push components into an array and return the array in the return statement.
+  
   const makePlayerArr = () => {
     let playerArr = [];
     for (let i = 1; i <= playerNum; i++) {
@@ -96,14 +83,13 @@ export default function Game() {
   };
   
   const handleTurnPass = () => {
-    // Sets the current turn to the output of the turn function.
     setCurrentTurn(Turn(currentTurn, playerNum));
   }
 
   if (toggle) {
     return (
       <div className="flex flex-col items-center">
-        <img className='board-image w-1/2 absolute right-1/3' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Risk_game_board.svg/600px-Risk_game_board.svg.png" alt="risk" />
+        <img className='board-image w-1/2 absolute' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Risk_game_board.svg/600px-Risk_game_board.svg.png" alt="risk" />
         <div className='absolute bg-red-900 border-2 border-x-amber-500 left-0'>
               <Table
                 playerNum = {playerNum}

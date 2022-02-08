@@ -43,10 +43,8 @@ export default function Combat(props) {
         att.sort((a,b)=> b-a);
         def.sort((a,b)=> b-a);
         }
-        console.log(att, def);
 
         if(att.length >= def.length){
-            console.log(att, def);
             def.map((e, i)=>{
                 if(e >= att[i]){
                     setTroopNum1(life1 -= 1);
@@ -61,7 +59,6 @@ export default function Combat(props) {
                 setTroopNum2(life2 - 1);
             }
         }
-        console.log(troopNum1, troopNum2);
     }, [toggle])
     
 

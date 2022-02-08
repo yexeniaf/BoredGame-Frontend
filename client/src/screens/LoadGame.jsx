@@ -6,7 +6,6 @@ import RollDice from '../components/Dice/RollDice';
 import RollOneDie from '../components/Dice/RollOneDie';
 import RollTwoDice from '../components/Dice/RollTwoDice';
 import PlayerCard from '../components/PlayerCard';
-import PlayerNumSelect from '../components/PlayerNumSelect';
 import SaveGameButton from '../components/SaveGameButton';
 import Table from '../components/Table';
 import Turn from '../scripts/Turn.js';
@@ -43,7 +42,6 @@ export default function LoadGame() {
         }
         const res = await axios.post(`https://boredgame-backend.herokuapp.com/gamestate`, gameState);
         const gameId = res.data.data._id;
-        console.log(id);
         await axios.get(`https://boredgame-backend.herokuapp.com/gamestate/${id}/${gameId}`);
         alert("Saved!");
     
