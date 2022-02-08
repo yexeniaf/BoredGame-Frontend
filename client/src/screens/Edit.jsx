@@ -29,7 +29,7 @@ export default function Edit() {
     
         setInput(default_input);
         navigate(`/account/${id}`);
-    };  
+    }  
 
   return (
     <div className="flex flex-col items-center" onSubmit={handleSubmit}>
@@ -42,5 +42,5 @@ export default function Edit() {
             <button type="submit">Save</button>
         </form>
     </div>
-  );
+  )
 }
