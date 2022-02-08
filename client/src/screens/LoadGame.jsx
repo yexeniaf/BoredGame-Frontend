@@ -6,9 +6,7 @@ import RollDice from '../components/Dice/RollDice';
 import RollOneDie from '../components/Dice/RollOneDie';
 import RollTwoDice from '../components/Dice/RollTwoDice';
 import PlayerCard from '../components/PlayerCard';
-import PlayerNumSelect from '../components/PlayerNumSelect';
 import SaveGameButton from '../components/SaveGameButton';
-import Setup from '../components/Setup';
 import Table from '../components/Table';
 import Turn from '../scripts/Turn.js';
 
@@ -89,7 +87,6 @@ export default function LoadGame() {
               <RollDice/>
               <RollTwoDice/>
               <RollOneDie/>
-              <Setup/>
             </div>
             <div className='stats absolute bg-red-900 right-0 border-2 border-x-amber-500'>
               <h3 className="text-lg font-bold text-yellow-50">Player Stats</h3>
