@@ -3,6 +3,10 @@ import { useState, useEffect } from "react";
 
 export default function SavedGames() {
   const [saved, setSaved] = useState([]);
+  const id = localStorage.getItem('CurrentUserId')
+  const authToken = localStorage.getItem('token')
+  console.log(id);
+  console.log(authToken);
 
   const loadGame = async(id) => {
     await axios.get(`https://boredgame-backend.herokuapp.com/gamestate/${id}`);
@@ -15,11 +19,11 @@ export default function SavedGames() {
 
   useEffect(() => {
     const fetchSavedGame = async() => {
-      const res = await axios.get(`http://localhost:4000/gamestate`)
-      setSaved(res.data.data)
-      console.log(res.data.data)
+      const res = await axios.get(`https://boredgame-backend.herokuapp.com/games/620163c014bcbcbcce701435`)
+      // setSaved(res.data.data)
+      console.log(res)
     }
-    fetchSavedGame()
+    fetchSavedGame();
   }, [])
 
   return (

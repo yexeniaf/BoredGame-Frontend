@@ -13,6 +13,7 @@ import Table from '../components/Table';
 import Turn from '../scripts/Turn.js';
 
 export default function Game() {
+  const id = localStorage.getItem('CurrentUserId')
   // This opens or collapses the player stats board.
   const [show, setShow] = useState(true)
 
@@ -57,11 +58,12 @@ export default function Game() {
     try {
       let gameState = {
           playerNum: playerNum,
-          territories: territories,
+          // territories: territories,
           turn: currentTurn
       }
-      const res = await axios.post(`https://boredgame-backend.herokuapp.com/gamestate`, gameState)
-      console.log(res);
+      const res = await axios.post(`https://boredgame-backend.herokuapp.com/gamestate`, gameState);
+      const gameId = res.data.data._id;
+      await axios.get(`https://boredgame-backend.herokuapp.com/gamestate/${id}/${gameId}`);
       alert("Saved!");
   
     } catch (error) {

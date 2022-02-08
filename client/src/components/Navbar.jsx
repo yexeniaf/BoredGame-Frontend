@@ -4,6 +4,7 @@ import { logoutUser } from "../services/apiConfig";
 
 export default function Navbar(props) {
   const token = localStorage.getItem("token");
+  const id = localStorage.getItem('CurrentUserId');
 
   let navigate = useNavigate();
   const handleLogout = (e) => {
@@ -33,7 +34,7 @@ export default function Navbar(props) {
             <Link to="/new">New</Link>
           </li>
           <li>
-            <Link to="/account/:id">Account Information</Link>
+            <Link to={`/account/${id}`}>Account Information</Link>
           </li>
           <li>
             <Link
