@@ -24,7 +24,6 @@ export default function Edit() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const fields = input;
-        console.log(fields);
         await updateUser(id, fields);
     
         setInput(default_input);
