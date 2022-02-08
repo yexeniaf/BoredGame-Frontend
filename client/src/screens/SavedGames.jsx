@@ -1,13 +1,19 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SavedGames() {
   const [saved, setSaved] = useState([]);
   const id = localStorage.getItem('CurrentUserId');
+  const navigate = useNavigate();
 
   const loadGame = async(id) => {
     const res = await axios.get(`https://boredgame-backend.herokuapp.com/gamestate/${id}`);
-    console.log(res.data.data.Game);
+    const loadData = res.data.data.Game;
+    console.log(loadData);
+    sessionStorage.setItem('playerNum', loadData.playerNum);
+    sessionStorage.setItem('turn', loadData.turn);
+    navigate("/load_game")
   }
 
   const handleClick = async(id)=>{
