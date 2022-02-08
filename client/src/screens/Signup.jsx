@@ -52,6 +52,7 @@ export default function Signup() {
           input={input}
           value={input.userName}
           onChange={handleTextInput}
+          className="text-black"
         />
         <label>Email</label>
         <input
@@ -59,6 +60,7 @@ export default function Signup() {
           input={input}
           value={input.email}
           onChange={handleTextInput}
+          className="text-black"
         />
         <br />
         <label>Password</label>
@@ -68,6 +70,7 @@ export default function Signup() {
           input={input}
           value={input.password_digest}
           onChange={handleTextInput}
+          className="text-black"
         />
         <br />
         <button id="button">Submit</button>
