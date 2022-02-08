@@ -10,4 +10,4 @@ export default function SaveGameButton(props) {
             Save Game
         </button>
     )
-};
+}
