@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 import Boggle from "./screens/Boggle";
 import PrivateRoute from "./components/PrivateRoute";
 import Logout from "./components/Logout";
+import LoadGame from "./screens/LoadGame";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         </Route>
         <Route path="/error" element={<ErrorPage />} />
         <Route path="/boggle" element={<Boggle />} />
+        <Route path="/load_game" element={<LoadGame />}/>
       </Routes>
       <Footer />
     </div>
