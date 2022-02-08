@@ -25,7 +25,6 @@ export default function Login() {
     try {
       const res = await loginUser(input);
       localStorage.setItem("token", res.data.token);
-      console.log(res);
       localStorage.setItem('CurrentUserId', res.data.user._id);
       navigate(`/account/${res.data.user._id}`);
     } catch (error) {
