@@ -14,37 +14,22 @@ import Turn from '../scripts/Turn.js';
 
 export default function Game() {
   const id = localStorage.getItem('CurrentUserId')
-  // This opens or collapses the player stats board.
   const [show, setShow] = useState(true)
-
-  // Toggle to control display of player number selector and main game.
   const [toggle, setToggle] = useState(false);
-
   const initialRender = useRef(true);
-
-  // Number of players:
   const [playerNum, setPlayerNum] = useState(2);
-
-  // Sets initial state for territories. 
   const [territories, setTerritories] = useState(defaultTerritories)
-
   const [currentTurn, setCurrentTurn] = useState(1);
-
-  // An array with player card elements eqaul to the number of players:
   const [players, setPlayers] = useState([]);
-
-  // The starting troop allottment per player:
   const [startingTroops, setStartingTroops] = useState(0);
 
-    // Changes the text in button to show close or open.
     let expandCollapseLabel;
     if (show) {
         expandCollapseLabel = "Close";
     } else if (!show) {
         expandCollapseLabel = "Open";
     };
-  
-  // When the toggle is fired, make an array of playyers.
+
   useEffect(() => {
     if (initialRender.current) {
       initialRender.current = false;
@@ -63,7 +48,6 @@ export default function Game() {
       }
       const res = await axios.post(`https://boredgame-backend.herokuapp.com/gamestate`, gameState);
       const gameId = res.data.data._id;
-      console.log(id);
       await axios.get(`https://boredgame-backend.herokuapp.com/gamestate/${id}/${gameId}`);
       alert("Saved!");
   
@@ -72,8 +56,7 @@ export default function Game() {
         console.error("Error Saving Game. Contact project owner.")
     };
   };
-
-  // Player num is an integer, so we need to push components into an array and return the array in the return statement.
+  
   const makePlayerArr = () => {
     let playerArr = [];
     for (let i = 1; i <= playerNum; i++) {
@@ -89,7 +72,6 @@ export default function Game() {
   };
   
   const handleTurnPass = () => {
-    // Sets the current turn to the output of the turn function.
     setCurrentTurn(Turn(currentTurn, playerNum));
   }
 
