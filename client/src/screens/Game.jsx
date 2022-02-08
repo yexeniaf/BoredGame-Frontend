@@ -15,7 +15,7 @@ import Turn from '../scripts/Turn.js';
 export default function Game() {
   const id = localStorage.getItem('CurrentUserId')
   // This opens or collapses the player stats board.
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(false)
 
   // Toggle to control display of player number selector and main game.
   const [toggle, setToggle] = useState(false);
@@ -107,7 +107,7 @@ export default function Game() {
           <div className="counters">
             
           </div>
-          <div className='fixed bottom-14 right-72 flex p-5 bg-red-900 border-2 border-x-amber-500 rounded-xl'>
+          <div className='fixed bottom-14 right-50 flex p-5 bg-red-900 border-2 border-x-amber-500 rounded-xl'>
             <RollDice/>
             <RollTwoDice/>
             <RollOneDie/>

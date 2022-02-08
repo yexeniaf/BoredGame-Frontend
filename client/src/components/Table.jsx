@@ -5,7 +5,7 @@ import TerrOwnerSlider from './TerrOwnerSlider.jsx';
 
 export default function Table(props) {
     // This functions the table from being able to be opened or closed so they players can see the map image. 
-    const [show, setShow] = useState(true)
+    const [show, setShow] = useState(false)
 
     // const [input, setInput] = useState({})
 
