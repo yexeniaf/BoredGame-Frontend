@@ -14,7 +14,8 @@ export default function LoadGame() {
     const turn = sessionStorage.getItem('turn')
     const loadPlayerNum = sessionStorage.getItem('playerNum')
     const id = localStorage.getItem('CurrentUserId')
-    const [show, setShow] = useState(false)  
+    const [show, setShow] = useState(false)
+    const [showDice, setShowDice] = useState(false)  
     const [playerNum, setPlayerNum] = useState(loadPlayerNum);  
     const [territories, setTerritories] = useState(defaultTerritories)  
     const [currentTurn, setCurrentTurn] = useState(turn); 
@@ -27,6 +28,13 @@ export default function LoadGame() {
       } else if (!show) {
           expandCollapseLabel = "Open";
       };    
+
+      let expandCollapseDice;
+      if (showDice) {
+          expandCollapseDice = "Close";
+      } else if (!showDice) {
+          expandCollapseDice = "Open";
+      };
    
     useEffect(() => {
       makePlayerArr();
@@ -79,11 +87,22 @@ export default function LoadGame() {
                   setTerritories = {setTerritories}
                 />
               </div>
-            <div className='fixed bottom-14 right-50 flex p-5 bg-red-900 border-2 border-x-amber-500 rounded-xl'>
-              <RollDice/>
-              <RollTwoDice/>
-              <RollOneDie/>
-            </div>
+              <div className='fixed flex-col bottom-14 right-1/4 p-5 bg-red-900 border-2 border-x-amber-500 rounded-xl'>
+                <h3 className=" font-bold text-yellow-50">Dice</h3>
+                  <button
+                    className="w-16 text-sm font-bold bg-amber-400 border-1 border-black rounded-sm m-2"
+                      onClick={()=> setShowDice(!showDice)}
+                  >
+                    {expandCollapseDice}
+                  </button>
+                  { showDice? 
+                  <div className='flex'>
+                  <RollDice/>
+                  <RollTwoDice/>
+                  <RollOneDie/>
+                  </div>
+                  :null}
+              </div>
             <div className='stats absolute bg-red-900 right-0 border-2 border-x-amber-500'>
               <h3 className="text-lg font-bold text-yellow-50">Player Stats</h3>
               <button
