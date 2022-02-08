@@ -10,7 +10,7 @@ export default function LandingPage() {
                             <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
                                 <span class="block xl:inline">Welcome</span>
                                 <br/>
-                                <span class="block text-indigo-600 xl:inline">Bored? Game!</span>
+                                <div className="block text-indigo-600 xl animate-[fade_.75s_ease-in]">Bored? <span className="animate-[fade_1.75s_ease-in]">Game!</span></div>
                             </h1>
                             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                                 <div className="rounded-md shadow">

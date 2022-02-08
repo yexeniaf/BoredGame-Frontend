@@ -89,6 +89,7 @@ export default function PlayerNumSelect(props) {
             </button>
         </form>
         </div>
+        <div>NOTE: You must be signed-in to your account <span className="font-bold">before</span> beginning a game in order to save the state of your game.</div>
         </div>
     );
 };
