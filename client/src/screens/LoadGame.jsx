@@ -8,7 +8,6 @@ import RollTwoDice from '../components/Dice/RollTwoDice';
 import PlayerCard from '../components/PlayerCard';
 import PlayerNumSelect from '../components/PlayerNumSelect';
 import SaveGameButton from '../components/SaveGameButton';
-import Setup from '../components/Setup';
 import Table from '../components/Table';
 import Turn from '../scripts/Turn.js';
 
@@ -16,7 +15,7 @@ export default function LoadGame() {
     const turn = sessionStorage.getItem('turn')
     const loadPlayerNum = sessionStorage.getItem('playerNum')
     const id = localStorage.getItem('CurrentUserId')
-    const [show, setShow] = useState(true)  
+    const [show, setShow] = useState(false)  
     const [playerNum, setPlayerNum] = useState(loadPlayerNum);  
     const [territories, setTerritories] = useState(defaultTerritories)  
     const [currentTurn, setCurrentTurn] = useState(turn); 
@@ -82,14 +81,10 @@ export default function LoadGame() {
                   setTerritories = {setTerritories}
                 />
               </div>
-            <div className="counters">
-              
-            </div>
-            <div className='fixed bottom-14 right-72 flex p-5 bg-red-900 border-2 border-x-amber-500 rounded-xl'>
+            <div className='fixed bottom-14 right-50 flex p-5 bg-red-900 border-2 border-x-amber-500 rounded-xl'>
               <RollDice/>
               <RollTwoDice/>
               <RollOneDie/>
-              <Setup/>
             </div>
             <div className='stats absolute bg-red-900 right-0 border-2 border-x-amber-500'>
               <h3 className="text-lg font-bold text-yellow-50">Player Stats</h3>
