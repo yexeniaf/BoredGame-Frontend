@@ -6,6 +6,10 @@
   height: 40px;
 }
 
+.logo2{
+  height: 70px;
+}
+
 .brand{
   display: flex;
   justify-content: center;
@@ -82,6 +86,10 @@ td {
 
 .stats {
   padding: 5px;
+}
+
+.signin {
+  border-radius: 10px;
 }
 
 .social-media {

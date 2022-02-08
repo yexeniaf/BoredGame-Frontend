@@ -39,5 +39,5 @@ export default function Account() {
         <Link to={`/edit/${id}`} className='text-blue-600'>Edit</Link>
     </form>
 </div>
-  );
+  )
 }

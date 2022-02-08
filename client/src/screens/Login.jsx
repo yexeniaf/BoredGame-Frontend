@@ -1,46 +1,50 @@
-import axios from "axios";
+import { loginUser } from "../services/apiConfig";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const default_user = {
-    email: "",
-    password_digest: ""
-}
+  email: "",
+  password_digest: "",
+};
 
 export default function Login() {
-    const [input, setInput] = useState(default_user);
-  
-    const navigate = useNavigate();
+  const [input, setInput] = useState(default_user);
 
-    const handleTextInput = (e) => {
-        const { name, value } = e.target;
-        setInput((prevInput) => ({
-          ...prevInput,
-          [name]: value,
-        }));
-    };
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-      e.preventDefault()
-      try {
-        const res = await axios.post(`https://boredgame-backend.herokuapp.com/login`, input);
-        localStorage.setItem('CurrentUserId', res.data.data.user_id);
-        navigate(`/account/${res.data.data.user._id}`)
-      } catch (error) {
-        console.error(error)
-          setInput({
-          isError: true,
-          errorMsg: 'Invalid Credentials',
-          email: '',
-          password_digest: '',
-        })
-      }   
+  const handleTextInput = (e) => {
+    const { name, value } = e.target;
+    setInput((prevInput) => ({
+      ...prevInput,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await loginUser(input);
+      localStorage.setItem("token", res.data.token);
+      console.log(res);
+      localStorage.setItem('CurrentUserId', res.data.user._id);
+      navigate(`/account/${res.data.user._id}`);
+    } catch (error) {
+      console.error(error);
+      setInput({
+        isError: true,
+        errorMsg: "Invalid Credentials",
+        email: "",
+        password_digest: "",
+      });
     }
+  };
 
     return (
-      <div className="shadow sm:rounded-md sm:overflow-hidden">
+      <div className=" flex flex-col items-center">
+          <form onSubmit={handleSubmit} className="signin flex flex-col items-center text-white text-xlg font-semibold bg-stone-700 m-5 p-20 w-90">
+          <img className='logo2' src="https://www.seekpng.com/png/full/70-707290_svg-black-and-white-arcade-clipart-arcade-machine.png" alt="arcade game"/>
           <h2 id="login">Login</h2>
-          <form onSubmit={handleSubmit} className="flex flex-col items-center bg-gray-300 m-5 p-5 w-70">
+          <br/>
               <label htmlFor="email">E-mail:</label>
               <input 
                 type="text" 
