@@ -91,6 +91,9 @@ td {
 .signin {
   border-radius: 10px;
 }
+.signup {
+  border-radius: 10px;
+}
 
 .social-media {
   display: flex;
