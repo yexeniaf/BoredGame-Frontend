@@ -6,6 +6,10 @@
   height: 40px;
 }
 
+.logo2{
+  height: 70px;
+}
+
 .brand{
   display: flex;
   justify-content: center;
@@ -84,6 +88,13 @@ td {
   padding: 5px;
 }
 
+.signin {
+  border-radius: 10px;
+}
+.signup {
+  border-radius: 10px;
+}
+
 .social-media {
   display: flex;
   justify-content: space-around;
@@ -93,5 +104,9 @@ td {
 .icons {
   display: flex;
   justify-content: space-around;
+}
+
+.account-title {
+  font-size: xx-large;
 }
 

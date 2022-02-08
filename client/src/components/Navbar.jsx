@@ -4,6 +4,7 @@ import { logoutUser } from "../services/apiConfig";
 
 export default function Navbar(props) {
   const token = localStorage.getItem("token");
+  const id = localStorage.getItem('CurrentUserId');
 
   let navigate = useNavigate();
   const handleLogout = (e) => {
@@ -22,7 +23,7 @@ export default function Navbar(props) {
           src="https://www.seekpng.com/png/full/70-707290_svg-black-and-white-arcade-clipart-arcade-machine.png"
           alt="arcade game"
         />
-        <h1 className="font-extrabold text-2xl text-stone-300">Bored? Game!</h1>
+        <h1 className="font-extrabold text-2xl text-stone-300 shadow-lg shadow-indigo-500/50">Bored? Game!</h1>
       </Link>
       {token ? (
         <ul className="links font-semibold text-stone-300">
@@ -33,7 +34,7 @@ export default function Navbar(props) {
             <Link to="/new">New</Link>
           </li>
           <li>
-            <Link to="/account/:id">Account Information</Link>
+            <Link to={`/account/${id}`}>Account Information</Link>
           </li>
           <li>
             <Link

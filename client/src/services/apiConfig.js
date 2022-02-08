@@ -64,7 +64,7 @@ axios({
 export const logoutUser = () => {
   axios({
     method: "get",
-    url: `${apiUrl}/logout`,
+    url: `${apiUrl}logout`,
   })
   .then((response)=>{
     return response.data
