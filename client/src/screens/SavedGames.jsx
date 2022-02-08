@@ -9,7 +9,8 @@ export default function SavedGames() {
   console.log(authToken);
 
   const loadGame = async(id) => {
-    await axios.get(`https://boredgame-backend.herokuapp.com/gamestate/${id}`);
+    const res = await axios.get(`https://boredgame-backend.herokuapp.com/gamestate/${id}`);
+    console.log(res);
   }
 
   const handleClick = async(id)=>{
@@ -19,8 +20,8 @@ export default function SavedGames() {
 
   useEffect(() => {
     const fetchSavedGame = async() => {
-      const res = await axios.get(`https://boredgame-backend.herokuapp.com/games/620163c014bcbcbcce701435`)
-      // setSaved(res.data.data)
+      const res = await axios.get(`https://boredgame-backend.herokuapp.com/games/${id}`)
+      setSaved(res.data.data.games)
       console.log(res)
     }
     fetchSavedGame();

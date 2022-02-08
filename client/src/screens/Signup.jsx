@@ -25,8 +25,10 @@ export default function Signup() {
     e.preventDefault();
     try {
       const res = await createUser(input);
+      console.log(res);
       localStorage.setItem("token", res.data.token);
-      navigate(`/account/${res.data.data.user}`);
+      localStorage.setItem("CurrentUserId", res.data.user)
+      navigate(`/account/${res.data.user}`);
     } catch (error) {
       console.error(error);
       setInput({
