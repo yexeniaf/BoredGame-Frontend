@@ -50,14 +50,15 @@ export default function Login() {
                 type="text" 
                 name='email' 
                 onChange={handleTextInput} 
-                className="border-solname-3" 
+                className="border-solname-3 text-black" 
                 required
               />
               <label htmlFor="password">Password:</label>
               <input 
-                type="text" 
+                type="password" 
                 name='password' 
                 onChange={handleTextInput} 
+                className="text-black"
                 required
               />
               <br/>

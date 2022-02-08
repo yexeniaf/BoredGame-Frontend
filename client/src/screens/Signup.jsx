@@ -41,7 +41,7 @@ export default function Signup() {
   return (
     <div className="flex flex-col items-center">
       <form
-        className="flex flex-col items-center bg-gray-400 m-5 p-5 w-70"
+        className="signup flex flex-col items-center text-white text-xlg font-semibold bg-stone-700 m-5 p-20 w-90"
         onSubmit={handleSubmit}
       >
         <h2>Signup</h2>
@@ -52,6 +52,7 @@ export default function Signup() {
           input={input}
           value={input.userName}
           onChange={handleTextInput}
+          className="text-black"
         />
         <label>Email</label>
         <input
@@ -59,6 +60,7 @@ export default function Signup() {
           input={input}
           value={input.email}
           onChange={handleTextInput}
+          className="text-black"
         />
         <br />
         <label>Password</label>
@@ -68,6 +70,7 @@ export default function Signup() {
           input={input}
           value={input.password_digest}
           onChange={handleTextInput}
+          className="text-black"
         />
         <br />
         <button id="button">Submit</button>

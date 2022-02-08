@@ -91,6 +91,9 @@ td {
 .signin {
   border-radius: 10px;
 }
+.signup {
+  border-radius: 10px;
+}
 
 .social-media {
   display: flex;
@@ -103,3 +106,6 @@ td {
   justify-content: space-around;
 }
 
+.account-title {
+  font-size: xx-large;
+}
